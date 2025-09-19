@@ -31,8 +31,7 @@ export default function Navbar() {
       href: "/courses/web-development",
       description:
         "European & American versions • Ball spinning • Inside & outside bets • Fast payouts",
-      image:
-        "https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=300&h=200&fit=crop&crop=center",
+      image: "uploads/courses/roulette.jpg",
       fullDescription:
         "Master the art of Roulette dealing with our comprehensive training program covering both European and American versions.",
     },
@@ -41,8 +40,8 @@ export default function Navbar() {
       href: "/courses/data-science",
       description:
         "3:2 & 6:5 Blackjack • Insurance bets • Splits & doubles • Game protection",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=200&fit=crop&crop=center",
+
+      image: "uploads/courses/jack.jpeg",
       fullDescription:
         "Learn professional Blackjack dealing techniques, game protection, and all betting variations in this intensive course.",
     },
@@ -51,8 +50,7 @@ export default function Navbar() {
       href: "/courses/mobile-development",
       description:
         "Texas Hold'em, Omaha, 7-Card Stud • Pot management • Tournament dealing",
-      image:
-        "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=300&h=200&fit=crop&crop=center",
+      image: "uploads/courses/poker.jpg",
       fullDescription:
         "Comprehensive poker dealing program covering all major variants and tournament management skills.",
     },
@@ -61,8 +59,7 @@ export default function Navbar() {
       href: "/courses/ui-ux-design",
       description:
         "Punto Banco style • Banker/Player/Tie payouts • 3rd card rule",
-      image:
-        "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=300&h=200&fit=crop&crop=center",
+      image: "uploads/courses/baccarat.jpg",
       fullDescription:
         "Professional Baccarat dealing certification with focus on Punto Banco style and advanced card handling techniques.",
     },
@@ -71,38 +68,31 @@ export default function Navbar() {
       href: "/courses/ui-ux-design",
       description:
         "Punto Banco style • Banker/Player/Tie payouts • 3rd card rule",
-      image:
-        "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=300&h=200&fit=crop&crop=center",
+      image: "uploads/courses/teen.jpg",
       fullDescription:
         "Professional Baccarat dealing certification with focus on Punto Banco style and advanced card handling techniques.",
     },
     {
       name: "Casino War",
       href: "/courses/ui-ux-design",
-      description:
-        "Punto Banco style • Banker/Player/Tie payouts • 3rd card rule",
-      image:
-        "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=300&h=200&fit=crop&crop=center",
+      description: "High-card game • War & surrender handling",
+      image: "uploads/courses/war.jpg",
       fullDescription:
         "Professional Baccarat dealing certification with focus on Punto Banco style and advanced card handling techniques.",
     },
     {
-      name: "Casino War 2",
+      name: "Andar Bahar",
       href: "/courses/ui-ux-design",
-      description:
-        "Punto Banco style • Banker/Player/Tie payouts • 3rd card rule",
-      image:
-        "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=300&h=200&fit=crop&crop=center",
+      description: "Fast-paced dealing • Andar vs Bahar payouts",
+      image: "uploads/courses/bahar.jpg",
       fullDescription:
         "Professional Baccarat dealing certification with focus on Punto Banco style and advanced card handling techniques.",
     },
     {
-      name: "Casino War 3",
+      name: "Marriage (Rummy Style)",
       href: "/courses/ui-ux-design",
-      description:
-        "Punto Banco style • Banker/Player/Tie payouts • 3rd card rule",
-      image:
-        "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=300&h=200&fit=crop&crop=center",
+      description: "21-card dealing • Pot splits & payouts",
+      image: "uploads/courses/marriage.jpeg",
       fullDescription:
         "Professional Baccarat dealing certification with focus on Punto Banco style and advanced card handling techniques.",
     },
@@ -169,7 +159,7 @@ export default function Navbar() {
       </AnimatePresence>
 
       <nav className="relative z-50">
-        <div className="max-w-7xl mx-auto py-4 px-6 bg-[#1D170F] shadow-sm mt-3 rounded-full">
+        <div className="max-w-7xl mx-auto py-4 px-6 bg-[#1D170F] shadow-sm mt-3 rounded-2xl md:rounded-full">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link
@@ -274,7 +264,7 @@ export default function Navbar() {
                                 transition={{ duration: 0.3 }}
                                 src={coursesDropdownItems[hoveredCourse].image}
                                 alt={coursesDropdownItems[hoveredCourse].name}
-                                className="w-full h-32 object-cover rounded-lg"
+                                className="w-full h-55 object-cover rounded-lg"
                               />
                               <div>
                                 <motion.h4
