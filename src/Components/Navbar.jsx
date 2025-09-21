@@ -152,14 +152,14 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
+            className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 "
             onClick={() => setActiveDropdown(null)}
           />
         )}
       </AnimatePresence>
 
       <nav className="relative z-50">
-        <div className="max-w-7xl mx-auto py-4 px-6 bg-[#1D170F] shadow-sm mt-3 rounded-2xl md:rounded-full">
+        <div className="max-w-7xl mx-auto py-4 px-6 bg-[#1D170F] shadow-sm rounded-2xl md:rounded-full">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link

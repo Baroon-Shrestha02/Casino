@@ -7,11 +7,12 @@ import ContactPage from "./Pages/ContactPage";
 import CareerPage from "./Pages/CareerPage";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
+import Navbar2 from "./Components/Navbar2";
 
 function App() {
   return (
     <>
-      <Navbar />
+      <Navbar2 />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />

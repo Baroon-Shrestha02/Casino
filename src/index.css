@@ -1,6 +1,24 @@
 @import "tailwindcss";
 
-/* #322920 ligher shade
- #1D170F darker shade
+@theme {
+  --color-back: #2a323f;
+  --color-primary: #ff9301;
+  --color-secondary: #03698d;
+}
 
- #E1C386 gold */
+@font-face {
+  font-family: "fallitin";
+  src: url("./Utils/fonts/fallitin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "sense";
+  src: url("./Utils//fonts/sense.ttf") format("truetype");
+}
+@font-face {
+  font-family: "sky";
+  src: url("./Utils/fonts/Skynews.ttf") format("truetype");
+}
+
+* {
+  font-family: "fallitin", sans-serif;
+}
