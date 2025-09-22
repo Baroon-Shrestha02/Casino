@@ -149,12 +149,12 @@ export default function HomeIntro() {
   return (
     <section
       ref={sectionRef}
-      className="bg-seconary py-20 container mx-auto rounded-4xl"
+      className="bg-seconary py-20 container mx-auto rounded-4xl px-4"
     >
       <div className="container mx-auto">
         <div className="relative z-10 h-full flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
           {/* Left Text */}
-          <div className="order-2 lg:order-1 flex-1 w-full flex flex-col justify-center items-center text-center lg:items-start lg:text-left pl-10">
+          <div className="order-2 lg:order-1 flex-1 w-full flex flex-col justify-center items-center text-center lg:items-start lg:text-left ">
             {/* Animated Title */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-2 mb-6">
               {titleWords.map((word, i) => (

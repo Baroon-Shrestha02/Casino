@@ -4,15 +4,20 @@ import HomeWhy from "./HomeWhy";
 import HomeCOurses from "./HomeCOurses";
 import HomeContact from "./HomeContact";
 import HomeIntro from "./HomeIntro";
+import HomeHighlights from "./HomeHighlights";
+import CasinoCTASection from "../HelperComponents/CasinoCTASection";
+import HomeCTA from "./HomeCTA";
 
 export default function HomeMain() {
   return (
-    <div>
+    <div className="bg-[]">
       <HomeHero />
+      <HomeHighlights />
       <HomeIntro />
-      <HomeWhy />
       <HomeCOurses />
-      <HomeContact />
+      <HomeWhy />
+      <HomeCTA />
+      {/* <HomeContact /> */}
     </div>
   );
 }

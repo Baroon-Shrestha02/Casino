@@ -164,7 +164,16 @@ export default function Navbar2() {
               to="/"
               className="text-3xl font-bold text-[#f9f8f0] transition-colors"
             >
-              Casino Academy
+              <div className="flex items-center gap-2">
+                <div>
+                  <img
+                    src="uploads/main/logo2.png"
+                    alt=""
+                    className="h-14 w-14"
+                  />
+                </div>
+                <div className="hidden md:block">Casino</div>
+              </div>
             </Link>
           </div>
         </div>
@@ -237,14 +246,14 @@ export default function Navbar2() {
                                   <Link
                                     key={index}
                                     to={item.href}
-                                    className="block p-3 rounded-lg hover:bg-red-50 transition-colors group"
+                                    className="block p-3 rounded-lg hover:bg-gray-100 transition-colors group"
                                     onMouseEnter={() => setHoveredCourse(index)}
                                     onClick={() => setActiveDropdown(null)}
                                   >
                                     <div className="flex items-start space-x-3">
-                                      <div className="w-2 h-2 bg-red-500 rounded-full mt-2 group-hover:scale-125 transition-transform"></div>
+                                      <div className="w-2 h-2 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-full mt-2 group-hover:scale-125 transition-transform"></div>
                                       <div>
-                                        <h4 className="font-medium text-gray-800 group-hover:text-red-600">
+                                        <h4 className="font-medium text-gray-800 group-hover:text-slate-600">
                                           {item.name}
                                         </h4>
                                         <p className="text-sm text-gray-600 mt-1">
@@ -258,7 +267,7 @@ export default function Navbar2() {
                             </div>
 
                             {/* Right side - Dynamic featured course */}
-                            <div className="bg-gradient-to-br from-red-500 to-red-600 rounded-lg p-6 text-white">
+                            <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 rounded-lg p-6 text-white">
                               <div className="space-y-4">
                                 <motion.img
                                   key={hoveredCourse}
@@ -294,7 +303,14 @@ export default function Navbar2() {
                                     }
                                   </motion.p>
                                   <div className="flex items-center justify-between mt-4">
-                                    <span className="text-sm">8 weeks</span>
+                                    <div className="text-sm">
+                                      <div>Standard Course</div>
+                                      <div>2-4 Weeks</div>
+                                    </div>
+                                    <div className="text-sm">
+                                      <div>Fast track</div>
+                                      <div>for experienced candidates</div>
+                                    </div>
                                     <Link
                                       to={
                                         coursesDropdownItems[hoveredCourse].href
