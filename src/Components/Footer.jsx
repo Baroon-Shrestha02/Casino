@@ -27,9 +27,9 @@ export default function CasinoFooter() {
   };
 
   return (
-    <footer className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
+    <footer className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden rounded-t-4xl">
       {/* Hero Section with Image and Overlay */}
-      <div className="relative h-[70vh] overflow-hidden">
+      <div className="relative h-[70vh] overflow-hidden rounded-t-4xl">
         {/* Background Image */}
         <div className="absolute inset-0 w-full h-full">
           <img
