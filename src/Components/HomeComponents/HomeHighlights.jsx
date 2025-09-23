@@ -58,7 +58,7 @@ export default function HomeHighlights() {
             {highlights.map((highlight, index) => (
               <div
                 key={index}
-                className={`bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-500 transform ${
+                className={`bg-white backdrop-blur-sm rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-500 transform ${
                   isVisible
                     ? "translate-y-0 opacity-100"
                     : "translate-y-8 opacity-0"

@@ -31,13 +31,13 @@ export default function CasinoCTASection({
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[80vh] overflow-hidden flex items-center justify-center"
+      className="relative min-h-[80vh] overflow-hidden flex items-center justify-center rounded-3xl"
     >
       {/* Background Container - Fixed positioning issue */}
       <div className="absolute inset-0 w-full h-full">
         {videoSrc ? (
           <video
-            className="absolute top-0 left-0 w-full h-full object-cover"
+            className="absolute top-0 left-0 w-full h-full object-cover rounded-3xl"
             style={{
               minHeight: "100%",
               minWidth: "100%",
@@ -62,7 +62,7 @@ export default function CasinoCTASection({
         <img
           src={imageSrc}
           alt="Background"
-          className={`absolute top-0 left-0 w-full h-full object-cover ${
+          className={`absolute top-0 left-0 w-full h-full object-cover rounded-3xl ${
             videoSrc ? "z-[-1]" : "z-0"
           }`}
           style={{

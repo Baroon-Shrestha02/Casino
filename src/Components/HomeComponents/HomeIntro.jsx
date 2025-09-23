@@ -43,7 +43,7 @@ export default function HomeIntro() {
       {
         id: 1,
         type: "video",
-        src: "uploads/home/intro1.mp4",
+        src: "/uploads/home/intro1.mp4",
         alt: "Casino training",
         bgColor: "bg-gradient-to-br from-blue-500 to-purple-600",
         rotation: -8,
@@ -55,7 +55,7 @@ export default function HomeIntro() {
       {
         id: 2,
         type: "image",
-        src: "uploads/main/fulllogo.jpg",
+        src: "/uploads/main/fulllogo.jpg",
         alt: "Training demo",
         bgColor: "bg-gradient-to-br from-emerald-500 to-teal-600",
         rotation: 5,
@@ -67,7 +67,7 @@ export default function HomeIntro() {
       {
         id: 3,
         type: "video",
-        src: "uploads/home/intro2.mp4",
+        src: "/uploads/home/intro2.mp4",
         alt: "Casino career",
         bgColor: "bg-gradient-to-br from-orange-500 to-red-500",
         rotation: -3,

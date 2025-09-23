@@ -9,47 +9,42 @@ const reasons = [
     title: "10+ Years of Training Experience",
     description:
       "With over a decade of expertise, we have successfully trained countless casino professionals who are now working in leading casinos and cruise ships across the globe.",
-    image:
-      "https://videos.pexels.com/video-files/3195396/3195396-sd_640_360_30fps.mp4",
+    image: "uploads/home/why/one.webp",
   },
   {
     id: 2,
     title: "Real Casino Equipment",
     description:
       "Train with authentic roulette wheels, blackjack tables, poker setups, and more. Our real equipment ensures you are fully prepared for actual casino environments.",
-    image:
-      "https://videos.pexels.com/video-files/3195396/3195396-sd_640_360_30fps.mp4",
+    image: "uploads/home/why/two.jpg",
   },
   {
     id: 3,
     title: "Small Batch Sizes",
     description:
       "We maintain limited seats in each batch, allowing trainers to give personal guidance and ensure every student gets hands-on experience and faster learning outcomes.",
-    video: "uploads/home/intro1.mp4",
+    image: "uploads/home/why/three.jpg",
   },
   {
     id: 4,
     title: "Focused Casino Dealer Skills",
     description:
       "Our programs are entirely dedicated to casino dealing—covering game rules, professional etiquette, speed, and accuracy—without diluting focus on unrelated skills.",
-    image:
-      "https://videos.pexels.com/video-files/3195396/3195396-sd_640_360_30fps.mp4",
+    image: "uploads/home/why/four.webp",
   },
   {
     id: 5,
     title: "Certified Trainers",
     description:
       "Learn directly from certified trainers with international exposure who bring real-world casino experience into the classroom.",
-    image:
-      "https://videos.pexels.com/video-files/3195396/3195396-sd_640_360_30fps.mp4",
+    image: "uploads/home/why/five.jpg",
   },
   {
     id: 6,
     title: "Global Career Pathways",
     description:
       "We provide not just training but career support, guiding you towards opportunities in casinos and cruise lines worldwide for a truly global future.",
-    image:
-      "https://videos.pexels.com/video-files/3195396/3195396-sd_640_360_30fps.mp4",
+    image: "uploads/home/why/six.jpg",
   },
 ];
 

@@ -21,7 +21,7 @@ export default function HomeCourses() {
         "European & American versions • Ball spinning • Inside & outside bets • Fast payouts",
       description:
         "Learn professional roulette dealing techniques including ball spinning, inside & outside bets, and fast payouts.",
-      image: "uploads/home/roulette.jpg",
+      image: "/uploads/home/roulette.jpg",
     },
     {
       id: 2,
@@ -30,7 +30,7 @@ export default function HomeCourses() {
         "3:2 & 6:5 Blackjack • Insurance bets • Splits & doubles • Game protection",
       description:
         "Comprehensive blackjack dealing program covering insurance bets, splits, doubles, and advanced game protection.",
-      image: "uploads/home/blackjack.jpg",
+      image: "/uploads/home/blackjack.jpg",
     },
     {
       id: 3,
@@ -39,7 +39,7 @@ export default function HomeCourses() {
         "Texas Hold’em, Omaha, 7-Card Stud • Pot management • Tournament dealing",
       description:
         "Master Texas Hold'em, Omaha, 7-Card Stud dealing with professional pot management and tournament skills.",
-      image: "uploads/home/poker.jpg",
+      image: "/uploads/home/poker.jpg",
     },
     {
       id: 4,
@@ -47,7 +47,7 @@ export default function HomeCourses() {
       subtitle: "Punto Banco style • Banker/Player/Tie payouts • 3rd card rule",
       description:
         "Professional Baccarat dealing certification focusing on Punto Banco style and 3rd card rules.",
-      image: "uploads/home/baccarat.jpg",
+      image: "/uploads/home/baccarat.jpg",
     },
     {
       id: 5,
@@ -55,7 +55,7 @@ export default function HomeCourses() {
       subtitle: "Boot & chaal bets • Blind vs seen play • Pot management",
       description:
         "Learn the art of dealing Teen Patti with proper hand rankings, side bets, and cultural etiquette.",
-      image: "uploads/home/teen.png",
+      image: "/uploads/home/teen.png",
     },
     {
       id: 6,
@@ -63,7 +63,7 @@ export default function HomeCourses() {
       subtitle: "High-card game • War & surrender handling",
       description:
         "Master high-speed casino games including Casino War, Andar Bahar, and other quick-play formats.",
-      image: "uploads/home/war.jpg",
+      image: "/uploads/home/war.jpg",
     },
     {
       id: 7,
@@ -71,7 +71,7 @@ export default function HomeCourses() {
       subtitle: "Fast-paced dealing • Andar vs Bahar payouts",
       description:
         "Master high-speed casino games including Casino War, Andar Bahar, and other quick-play formats.",
-      image: "uploads/home/andar.avif",
+      image: "/uploads/home/andar.avif",
     },
     {
       id: 8,
@@ -79,7 +79,7 @@ export default function HomeCourses() {
       subtitle: "21-card dealing • Pot splits & payouts",
       description:
         "Master high-speed casino games including Casino War, Andar Bahar, and other quick-play formats.",
-      image: "uploads/home/rummy.jpeg",
+      image: "/uploads/home/rummy.jpeg",
     },
   ];
 

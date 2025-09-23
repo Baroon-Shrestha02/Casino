@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "framer-motion";
 
 /* #322920 ligher shade
@@ -27,70 +28,70 @@ export default function Navbar2() {
   const coursesDropdownItems = [
     {
       name: "Roulette",
-      href: "/courses/web-development",
+      href: "/courses/roulette",
       description:
         "European & American versions • Ball spinning • Inside & outside bets • Fast payouts",
-      image: "uploads/courses/roulette.jpg",
+      image: "/uploads/courses/roulette.jpg",
       fullDescription:
         "Master the art of Roulette dealing with our comprehensive training program covering both European and American versions.",
     },
     {
       name: "Blackjack",
-      href: "/courses/data-science",
+      href: "/courses/blackjack",
       description:
         "3:2 & 6:5 Blackjack • Insurance bets • Splits & doubles • Game protection",
-      image: "uploads/courses/jack.jpeg",
+      image: "/uploads/courses/jack.jpeg",
       fullDescription:
         "Learn professional Blackjack dealing techniques, game protection, and all betting variations in this intensive course.",
     },
     {
       name: "Poker (All Variants)",
-      href: "/courses/mobile-development",
+      href: "/courses/poker",
       description:
         "Texas Hold'em, Omaha, 7-Card Stud • Pot management • Tournament dealing",
-      image: "uploads/courses/poker.jpg",
+      image: "/uploads/courses/poker.jpg",
       fullDescription:
         "Comprehensive poker dealing program covering all major variants and tournament management skills.",
     },
     {
       name: "Baccarat",
-      href: "/courses/ui-ux-design",
+      href: "/courses/baccarat",
       description:
         "Punto Banco style • Banker/Player/Tie payouts • 3rd card rule",
-      image: "uploads/courses/baccarat.jpg",
+      image: "/uploads/courses/baccarat.jpg",
       fullDescription:
         "Professional Baccarat dealing certification with focus on Punto Banco style and advanced card handling techniques.",
     },
     {
       name: "Indian Flush (Teen Patti)",
-      href: "/courses/ui-ux-design",
+      href: "/courses/teen-patti",
       description:
         "Punto Banco style • Banker/Player/Tie payouts • 3rd card rule",
-      image: "uploads/courses/teen.jpg",
+      image: "/uploads/courses/teen.jpg",
       fullDescription:
         "Professional Baccarat dealing certification with focus on Punto Banco style and advanced card handling techniques.",
     },
     {
       name: "Casino War",
-      href: "/courses/ui-ux-design",
+      href: "/courses/casino-war",
       description: "High-card game • War & surrender handling",
-      image: "uploads/courses/war.jpg",
+      image: "/uploads/courses/war.jpg",
       fullDescription:
         "Professional Baccarat dealing certification with focus on Punto Banco style and advanced card handling techniques.",
     },
     {
       name: "Andar Bahar",
-      href: "/courses/ui-ux-design",
+      href: "/courses/andar-bahar",
       description: "Fast-paced dealing • Andar vs Bahar payouts",
-      image: "uploads/courses/bahar.jpg",
+      image: "/uploads/courses/bahar.jpg",
       fullDescription:
         "Professional Baccarat dealing certification with focus on Punto Banco style and advanced card handling techniques.",
     },
     {
       name: "Marriage (Rummy Style)",
-      href: "/courses/ui-ux-design",
+      href: "/courses/marriage",
       description: "21-card dealing • Pot splits & payouts",
-      image: "uploads/courses/marriage.jpeg",
+      image: "/uploads/courses/marriage.jpeg",
       fullDescription:
         "Professional Baccarat dealing certification with focus on Punto Banco style and advanced card handling techniques.",
     },
@@ -167,12 +168,12 @@ export default function Navbar2() {
               <div className="flex items-center gap-2">
                 <div>
                   <img
-                    src="uploads/main/logo2.png"
+                    src="/uploads/main/logo2.png"
                     alt=""
                     className="h-14 w-14"
                   />
                 </div>
-                <div className="hidden md:block">Casino</div>
+                <div className="hidden md:block">Casino Traning Nepal</div>
               </div>
             </Link>
           </div>
@@ -330,6 +331,12 @@ export default function Navbar2() {
                     )}
                   </AnimatePresence>
                 </div>
+                <Link
+                  to="/gallery"
+                  className="text-[#f9f8f0] transition-colors font-medium"
+                >
+                  Gallery
+                </Link>
               </div>
 
               {/* Right side - Careers and Contact */}

@@ -1,5 +1,10 @@
 import React from "react";
+import CoursesMain from "../Components/CoursesComponents/CoursesMain";
 
 export default function CoursePage() {
-  return <div>CoursePage</div>;
+  return (
+    <div>
+      <CoursesMain />
+    </div>
+  );
 }

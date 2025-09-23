@@ -24,7 +24,7 @@ export default function HomeHero() {
             <div
               className="relative inset-0 min-h-[90vh] bg-cover bg-center bg-no-repeat"
               style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url('uploads/home/hero.jpeg')`,
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url('/uploads/home/hero.jpeg')`,
               }}
             ></div>
           </div>
