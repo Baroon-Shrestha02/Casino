@@ -6,9 +6,9 @@ export default function CareerHero() {
     <div>
       <HeroSection
         title="Your Casino Career Starts Here"
-        subtitle="Professional Dealer Academy."
-        description="Nepal’s top Casino Dealer Training Center since 2014 – get job-ready with expert training and industry connections."
-        image="uploads/gallery/img5.jpg"
+        subtitle="Gateway to Global Opportunities"
+        description="Train with Nepal’s top Casino Dealer Academy and get job-ready with expert skills and industry connections."
+        image="uploads/career/hero2.jpg"
       />
     </div>
   );

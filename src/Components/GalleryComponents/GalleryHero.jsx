@@ -5,10 +5,10 @@ export default function GalleryHero() {
   return (
     <div>
       <HeroSection
-        title="Casino Training Nepal"
-        subtitle="Professional Dealer Academy."
-        description="Nepal’s top Casino Dealer Training Center since 2014 – get job-ready with expert training and industry connections."
-        image="uploads/gallery/img5.jpg"
+        title="Our Gallery"
+        subtitle="Experience the Casino World in Action."
+        description="Step inside our training academy – where aspiring dealers master the art of casino games through hands-on learning, real equipment, and expert guidance."
+        image="uploads/gallery/hero.jpg"
       />
     </div>
   );

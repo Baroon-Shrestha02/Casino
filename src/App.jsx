@@ -18,10 +18,12 @@ import Baccarat from "./Components/CoursesComponents/CoursesList/baccarat";
 import CasinoWar from "./Components/CoursesComponents/CoursesList/CasinoWar";
 import Andar from "./Components/CoursesComponents/CoursesList/Andar";
 import Marriage from "./Components/CoursesComponents/CoursesList/Marriage";
+import ScrollToTop from "./Components/HelperComponents/ScrollToTop";
 
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Whatsapp />
       <Navbar2 />
       <Routes>

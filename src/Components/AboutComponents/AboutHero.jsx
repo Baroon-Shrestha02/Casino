@@ -8,7 +8,7 @@ export default function AboutHero() {
         title="Casino Training Nepal"
         subtitle="Professional Dealer Academy."
         description="Nepal’s top Casino Dealer Training Center since 2014 – get job-ready with expert training and industry connections."
-        image="uploads/gallery/img5.jpg"
+        image="uploads/about/hero.jpg"
       />
     </div>
   );
