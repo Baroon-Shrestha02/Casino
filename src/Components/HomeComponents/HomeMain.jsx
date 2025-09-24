@@ -1,7 +1,7 @@
 import React from "react";
 import HomeHero from "./HomeHero";
 import HomeWhy from "./HomeWhy";
-import HomeCOurses from "./HomeCOurses";
+import HomeCourses from "./HomeCourses";
 import HomeContact from "./HomeContact";
 import HomeIntro from "./HomeIntro";
 import HomeHighlights from "./HomeHighlights";
@@ -14,7 +14,7 @@ export default function HomeMain() {
       <HomeHero />
       <HomeHighlights />
       <HomeIntro />
-      <HomeCOurses />
+      <HomeCourses />
       <HomeWhy />
       <HomeCTA />
       {/* <HomeContact /> */}
