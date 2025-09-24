@@ -14,7 +14,7 @@ import Roullete from "./Components/CoursesComponents/CoursesList/Roullete";
 import BlackJack from "./Components/CoursesComponents/CoursesList/BlackJack";
 import Poker from "./Components/CoursesComponents/CoursesList/Poker";
 import TeenPatti from "./Components/CoursesComponents/CoursesList/TeenPatti";
-import Baccarat from "./Components/CoursesComponents/CoursesList/baccarat";
+import Baccarat from "./Components/CoursesComponents/CoursesList/Baccarat";
 import CasinoWar from "./Components/CoursesComponents/CoursesList/CasinoWar";
 import Andar from "./Components/CoursesComponents/CoursesList/Andar";
 import Marriage from "./Components/CoursesComponents/CoursesList/Marriage";
