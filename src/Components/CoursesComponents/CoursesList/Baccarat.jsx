@@ -25,7 +25,7 @@ export default function Baccarat() {
         desc3="Engage in hands-on training using real Baccarat tables and chips. Refine your speed, accuracy, and confidence in dealing to handle live casino environments."
         step4="Career Preparation"
         desc4="Receive guidance on certification, interview preparation, and career readiness. Learn industry expectations to secure positions as professional Baccarat dealers."
-        image="/uploads/gallery/img_baccarat_table.jpg"
+        image="/uploads/courses/info/baccarat.jpg"
         // learning outcomes
         learn1="Baccarat Fundamentals"
         out1="Understanding Baccarat rules and table layout"

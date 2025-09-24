@@ -25,7 +25,7 @@ export default function Andar() {
         desc3="Engage in hands-on sessions using real Andar Bahar tables and chips. Refine your accuracy, speed, and confidence in dealing to handle live casino and private gaming events."
         step4="Career Preparation"
         desc4="Receive guidance on certification, interview preparation, and career readiness. Learn industry expectations to secure positions as professional Andar Bahar dealers."
-        image="/uploads/gallery/img_andarbahar_table.jpg"
+        image="/uploads/courses/info/andar.jpg"
         // learning outcomes
         learn1="Andar Bahar Fundamentals"
         out1="Understanding Andar Bahar rules and table layout"

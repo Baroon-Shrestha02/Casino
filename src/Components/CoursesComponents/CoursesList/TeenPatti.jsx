@@ -25,7 +25,7 @@ export default function TeenPatti() {
         desc3="Engage in hands-on sessions using real Teen Patti tables and chips. Refine your speed, accuracy, and confidence in dealing, ensuring readiness for live gaming environments."
         step4="Career Preparation"
         desc4="Receive guidance on certification, interview preparation, and career readiness. Learn industry expectations to secure positions as professional Teen Patti dealers."
-        image="/uploads/gallery/img_teenpatti_table.jpg"
+        image="/uploads/courses/info/teen.png"
         // learning outcomes
         learn1="Teen Patti Fundamentals"
         out1="Understanding Teen Patti rules and table layout"

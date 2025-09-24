@@ -25,7 +25,7 @@ export default function Roullete() {
         desc3="Apply your knowledge in real-time practice sessions. Through hands-on simulations, you’ll refine your accuracy, speed, and confidence in dealing, ensuring you’re prepared for the fast-paced environment of a live casino floor."
         step4="Career Preparation"
         desc4="Go beyond technical skills with guidance on industry standards, interview preparation, and certification. This final step equips you with the professional edge needed to launch a successful career in the casino industry."
-        image="/uploads/gallery/img7.jpg"
+        image="/uploads/courses/info/roulette.jpg"
         //learning outcomes
         // outcome1
         learn1="Roulette Fundamentals"

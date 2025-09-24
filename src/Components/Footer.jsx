@@ -19,10 +19,10 @@ export default function CasinoFooter() {
       { name: "Contact", to: "/contact" },
     ],
     courses: [
-      { name: "Roulette", to: "/courses/dealer" },
-      { name: "Blackjack", to: "/courses/management" },
-      { name: "Poker (All Variants)", to: "/courses/regulations" },
-      { name: "Indian Flush (Teen Patti)", to: "/courses/service" },
+      { name: "Roulette", to: "/courses/roulette" },
+      { name: "Blackjack", to: "/courses/blackjack" },
+      { name: "Poker (All Variants)", to: "/courses/poker" },
+      { name: "Indian Flush (Teen Patti)", to: "/courses/teen-patti" },
     ],
   };
 
@@ -55,7 +55,7 @@ export default function CasinoFooter() {
       </div>
 
       {/* Content Section - blended with image via gradient */}
-      <div className="relative z-10 px-12 py-16 bg-gradient-to-b from-transparent to-slate-900">
+      <div className="relative z-10 px-12 py-16 bg-gradient-to-b from-slate-900 to-transparent">
         {/* 4 Column Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
           {/* Column 1: Introduction */}

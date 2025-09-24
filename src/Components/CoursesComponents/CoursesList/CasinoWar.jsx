@@ -25,7 +25,7 @@ export default function CasinoWar() {
         desc3="Engage in hands-on practice using real Casino War tables and chips. Refine your accuracy, speed, and confidence in dealing to handle live casino environments."
         step4="Career Preparation"
         desc4="Receive guidance on certification, interview preparation, and career readiness. Learn industry expectations to secure positions as professional Casino War dealers."
-        image="/uploads/gallery/img_casinowar_table.jpg"
+        image="/uploads/courses/info/war.jpg"
         // learning outcomes
         learn1="Casino War Fundamentals"
         out1="Understanding Casino War rules and table layout"

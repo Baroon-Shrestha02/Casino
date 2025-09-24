@@ -25,7 +25,7 @@ export default function Poker() {
         desc3="Engage in hands-on training using real Poker tables and chips. Refine your speed, accuracy, and confidence in dealing, ensuring readiness for live casino and tournament environments."
         step4="Career Preparation"
         desc4="Receive guidance on certification, interview preparation, and career readiness. Learn industry expectations to secure positions as professional Poker dealers."
-        image="/uploads/gallery/img_poker_table.jpg"
+        image="/uploads/courses/info/poker.jpg"
         // learning outcomes
         learn1="Poker Fundamentals"
         out1="Understanding Poker rules and table layout"

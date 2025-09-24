@@ -25,7 +25,7 @@ export default function Marriage() {
         desc3="Engage in hands-on sessions using real Marriage tables and chips. Refine your accuracy, speed, and confidence in dealing to handle live casino and private gaming events."
         step4="Career Preparation"
         desc4="Receive guidance on certification, interview preparation, and career readiness. Learn industry expectations to secure positions as professional Marriage dealers."
-        image="/uploads/gallery/img_marriage_table.jpg"
+        image="/uploads/courses/info/rummy.jpg"
         // learning outcomes
         learn1="Marriage Fundamentals"
         out1="Understanding Marriage rules and table layout"

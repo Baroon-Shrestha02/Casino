@@ -25,7 +25,7 @@ export default function BlackJack() {
         desc3="Engage in hands-on sessions using real Blackjack tables and chips. Refine your speed, accuracy, and confidence in dealing, ensuring readiness for live casino operations."
         step4="Career Preparation"
         desc4="Gain guidance on certification, interview preparation, and career readiness. Learn industry expectations to secure positions as professional Blackjack dealers."
-        image="/uploads/gallery/img4.jpg"
+        image="/uploads/courses/info/blackjack.png"
         //learning outcomes
         learn1="Blackjack Fundamentals"
         out1="Understanding Blackjack rules and table layout"
