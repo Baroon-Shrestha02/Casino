@@ -1,185 +1,278 @@
-import React, { useState, useEffect, useRef } from "react";
-import { ChevronDown, Eye, Heart, Share2, X } from "lucide-react";
-import allImages from "./GalleryData";
+import React, { useState, useEffect } from "react";
+import { X, ChevronLeft, ChevronRight, Camera } from "lucide-react";
 import GalleryHero from "./GalleryHero";
 
-const Gallery = () => {
-  const [visibleImages, setVisibleImages] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [loadedImages, setLoadedImages] = useState(new Set());
-  const [loading, setLoading] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const observerRef = useRef(null);
-
-  // Initialize with first 12 images
-  useEffect(() => {
-    setVisibleImages(allImages.slice(0, 12));
-    setCurrentIndex(12);
-  }, []);
-
-  // Lazy loading observer
-  useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            const src = img.dataset.src;
-            if (src && !loadedImages.has(src)) {
-              img.src = src;
-              img.classList.remove("opacity-0");
-              img.classList.add("opacity-100");
-              setLoadedImages((prev) => new Set(prev).add(src));
-            }
-          }
-        });
-      },
-      { threshold: 0.1 }
+// Mock LazyMotionItem component since it's not available
+const LazyMotionItem = ({ type, src }) => {
+  if (type === "video") {
+    return (
+      <video
+        src={src}
+        className="w-full h-full object-cover"
+        controls={false}
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
     );
+  }
+  return (
+    <img
+      src={src}
+      alt=""
+      className="w-full h-full object-cover"
+      loading="lazy"
+    />
+  );
+};
 
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
-    };
-  }, [loadedImages]);
+// Skeleton Shimmer Component
+const SkeletonShimmer = () => (
+  <div className="animate-pulse">
+    <div
+      className="bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 rounded-xl aspect-square"
+      style={{
+        backgroundSize: "200% 100%",
+        animation: "shimmer 2s infinite linear",
+      }}
+    ></div>
+  </div>
+);
 
-  // Load more images function
-  const loadMoreImages = () => {
-    setLoading(true);
-
-    // Simulate loading delay
-    setTimeout(() => {
-      const nextBatch = allImages.slice(currentIndex, currentIndex + 6);
-      setVisibleImages((prev) => [...prev, ...nextBatch]);
-      setCurrentIndex((prev) => prev + 6);
-      setLoading(false);
-    }, 800);
-  };
-
-  // Check if there are more images to load
-  const hasMoreImages = currentIndex < allImages.length;
-
-  // Image ref callback for lazy loading
-  const imageRef = (el) => {
-    if (el && observerRef.current) {
-      observerRef.current.observe(el);
-    }
-  };
+// Gallery Skeleton Grid
+const GallerySkeletonGrid = ({ count = 12 }) => {
+  const skeletons = Array.from({ length: count }, (_, i) => i);
 
   return (
-    <div className="min-h-screen px-6">
-      {/* Header */}
-      <GalleryHero />
-
-      {/* Masonry Grid */}
-      <div className="max-w-4xl mx-auto text-center px-4 my-20">
-        <h2 className="text-2xl md:text-5xl font-extrabold leading-tight">
-          {" "}
-          View our <span className="text-primary">Wonderful Moments</span> with
-          Students 📸
-        </h2>
-      </div>
-
-      <div className="max-w-7xl mx-auto ">
-        <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
-          {visibleImages.map((image, index) => (
-            <div
-              key={image.id}
-              className="break-inside-avoid relative group cursor-pointer transform transition-all duration-300 hover:scale-[1.02]"
-              onClick={() => setSelectedImage(image)}
-            >
-              <div className="relative overflow-hidden rounded-lg shadow-2xl group cursor-pointer transform transition-all duration-300 hover:scale-[1.02]">
-                <img
-                  ref={imageRef}
-                  data-src={image.url}
-                  alt={image.title}
-                  className={`w-full h-auto object-cover transition-opacity duration-700 ${
-                    loadedImages.has(image.url) ? "opacity-100" : "opacity-0"
-                  }`}
-                  loading="lazy"
-                />
-
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-                {/* Loading placeholder */}
-                {!loadedImages.has(image.url) && (
-                  <div className="absolute inset-0 bg-slate-700 animate-pulse rounded-lg"></div>
-                )}
-              </div>
-            </div>
-          ))}
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+      {skeletons.map((_, index) => (
+        <div key={index} className="space-y-3 md:space-y-6">
+          <SkeletonShimmer />
+          {index % 3 === 0 && <SkeletonShimmer />}
         </div>
-
-        {/* Load More Button */}
-        {hasMoreImages && (
-          <div className="text-center mt-16">
-            <button
-              onClick={loadMoreImages}
-              disabled={loading}
-              className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-yellow-500 to-yellow-400 text-slate-900 font-bold px-8 py-4 rounded-lg hover:from-yellow-400 hover:to-yellow-300 transform hover:scale-105 transition-all duration-300 shadow-lg disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
-            >
-              {loading ? (
-                <>
-                  <div className="w-5 h-5 border-2 border-slate-900 border-t-transparent rounded-full animate-spin"></div>
-                  Loading...
-                </>
-              ) : (
-                <>
-                  Load More Images
-                  <ChevronDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
-                </>
-              )}
-            </button>
-            <p className="text-gray-400 mt-4 text-sm">
-              Showing {visibleImages.length} of {allImages.length} images
-            </p>
-          </div>
-        )}
-
-        {/* End message */}
-        {!hasMoreImages && (
-          <div className="text-center my-12">
-            <p className="text-gray-400 text-lg">
-              You've seen all our amazing images! 🎉
-            </p>
-          </div>
-        )}
-      </div>
-
-      {/* Modal for full-size image */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 backdrop-blur-sm animate-fade-in"
-          onClick={() => setSelectedImage(null)}
-        >
-          <div
-            className="relative w-full h-full flex items-center justify-center"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={selectedImage.url}
-              alt={selectedImage.title}
-              className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg shadow-2xl animate-scale-in"
-              style={{
-                maxWidth: "calc(100vw - 2rem)",
-                maxHeight: "calc(100vh - 2rem)",
-              }}
-            />
-
-            {/* Close button */}
-            <button
-              onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 w-12 h-12 bg-black/70 hover:bg-black/90 text-white rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
-            >
-              <X className="w-6 h-6" />
-            </button>
-          </div>
-        </div>
-      )}
+      ))}
     </div>
   );
 };
 
-export default Gallery;
+export default function Gallery() {
+  const [layoutType] = useState("improved-masonry");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if mobile on mount and resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Simulate loading effect
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // ✅ Single array of media files
+  const mediaFiles = [
+    {
+      src: "/uploads/gallery/img1.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+    {
+      src: "/uploads/gallery/img2.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+    {
+      src: "/uploads/gallery/img3.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+    {
+      src: "/uploads/gallery/img4.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+    {
+      src: "/uploads/gallery/img5.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+    {
+      src: "/uploads/gallery/img6.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+    {
+      src: "/uploads/gallery/img7.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+  ];
+
+  const openModal = (index) => {
+    setSelectedIndex(index);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedIndex(null);
+    setIsModalOpen(false);
+  };
+
+  const nextMedia = () =>
+    setSelectedIndex((prev) => (prev + 1) % mediaFiles.length);
+  const prevMedia = () =>
+    setSelectedIndex((prev) => (prev === 0 ? mediaFiles.length - 1 : prev - 1));
+
+  // Normal grid for small screens, masonry for larger screens
+  const renderResponsiveGrid = () => {
+    if (isMobile) {
+      return (
+        <div className="grid grid-cols-2 gap-3">
+          {mediaFiles.map((file, index) => (
+            <div
+              key={index}
+              className="cursor-pointer relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 hover:-translatey-1"
+              onClick={() => openModal(index)}
+            >
+              <div className="overflow-hidden rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 aspect-square">
+                <LazyMotionItem type={file.type} src={file.src} />
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    } else {
+      return renderImprovedMasonry();
+    }
+  };
+
+  const renderImprovedMasonry = () => {
+    const columns = [[], [], [], []];
+    mediaFiles.forEach((file, i) => {
+      const shortestIndex = columns.reduce(
+        (minIndex, col, index, arr) =>
+          col.length < arr[minIndex].length ? index : minIndex,
+        0
+      );
+      columns[shortestIndex].push({ ...file, index: i });
+    });
+
+    return (
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+        {columns.map((column, colIndex) => (
+          <div key={colIndex} className="flex flex-col gap-3 md:gap-6">
+            {column.map((file) => (
+              <div
+                key={file.index}
+                className="cursor-pointer relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-150 ease-in-out transform hover:scale-105 hover:-translate-y-1"
+                onClick={() => openModal(file.index)}
+              >
+                <div className="overflow-hidden rounded-xl bg-gradient-to-br from-gray-100 to-gray-200">
+                  <LazyMotionItem type={file.type} src={file.src} />
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  return (
+    <>
+      <style jsx>{`
+        @keyframes shimmer {
+          0% {
+            background-position: -200% 0;
+          }
+          100% {
+            background-position: 200% 0;
+          }
+        }
+      `}</style>
+
+      <GalleryHero />
+
+      {/* Gallery */}
+      <div className="container mx-auto my-10 px-4 md:px-8">
+        {isLoading ? (
+          <GallerySkeletonGrid count={12} />
+        ) : mediaFiles.length > 0 ? (
+          <div className="opacity-100 transition-opacity duration-600">
+            {layoutType === "improved-masonry" && renderResponsiveGrid()}
+          </div>
+        ) : (
+          <div className="text-center py-20">
+            <Camera size={32} className="mx-auto text-gray-400 mb-4" />
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">
+              No Images Found
+            </h3>
+            <p className="text-gray-500">No images found in this gallery.</p>
+          </div>
+        )}
+      </div>
+
+      {/* Modal */}
+      {isModalOpen && selectedIndex !== null && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4">
+          <button
+            onClick={closeModal}
+            className="absolute top-6 right-6 text-white/80 hover:text-white hover:bg-white/10 rounded-full p-2"
+          >
+            <X size={24} />
+          </button>
+          <button
+            onClick={prevMedia}
+            className="absolute left-6 text-white/80 hover:text-white hover:bg-white/10 rounded-full p-3"
+          >
+            <ChevronLeft size={32} />
+          </button>
+          <div className="max-w-6xl max-h-[85vh] mx-auto relative transform scale-100 opacity-100 transition-all duration-300">
+            {mediaFiles[selectedIndex].type === "image" ? (
+              <img
+                src={mediaFiles[selectedIndex].src}
+                alt={mediaFiles[selectedIndex].alt}
+                className="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
+              />
+            ) : (
+              <video
+                src={mediaFiles[selectedIndex].src}
+                autoPlay
+                muted
+                loop
+                className="max-w-full max-h-[85vh] rounded-lg shadow-2xl"
+              />
+            )}
+          </div>
+          <button
+            onClick={nextMedia}
+            className="absolute right-6 text-white/80 hover:text-white hover:bg-white/10 rounded-full p-3"
+          >
+            <ChevronRight size={32} />
+          </button>
+        </div>
+      )}
+    </>
+  );
+}

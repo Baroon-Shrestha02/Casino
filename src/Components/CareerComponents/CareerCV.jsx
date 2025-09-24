@@ -124,7 +124,7 @@ Please review the submission and contact the student for next steps.
             />
             <div className="absolute inset-0 bg-black/50" />
             <div className="relative z-10 flex flex-col justify-center items-center text-center p-8 text-white w-full">
-              <h2 className="text-4xl font-bold mb-6">Submit Your File</h2>
+              <h2 className="text-4xl font-bold mb-6">Send Us Your CV</h2>
               <p className="text-lg leading-relaxed max-w-md">
                 Upload your project files easily and our team will connect with
                 you for the next steps.
