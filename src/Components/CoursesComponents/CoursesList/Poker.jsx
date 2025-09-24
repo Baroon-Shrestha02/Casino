@@ -9,7 +9,7 @@ export default function Poker() {
         title="Poker"
         subtitle="Learn Poker - From Beginner to Advanced."
         description="Step into the exciting world of casino gaming with our comprehensive Poker Dealer Training Course. Learn to deal Texas Hold’em, Omaha, and other popular variants while mastering professional dealer techniques and casino protocols."
-        image="/uploads/gallery/img_poker.jpg"
+        image="/uploads/home/poker.jpg"
       />
       <CoursesSection
         title="🃏 Master the Art of Poker"

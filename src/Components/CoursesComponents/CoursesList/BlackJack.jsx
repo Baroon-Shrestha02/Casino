@@ -9,7 +9,7 @@ export default function BlackJack() {
         title="BlackJack"
         subtitle="Learn Blackjack - From Beginner to Advanced."
         description="Step into the exciting world of casino gaming with our comprehensive Blackjack Training Course. Learn the rules, strategies, and professional dealer techniques that make Blackjack one of the most popular casino games worldwide."
-        image="/uploads/gallery/img_blackjack.jpg"
+        image="/uploads/home/blackjack.jpg"
       />
       <CoursesSection
         title="🎲 Master the Art of Blackjack"

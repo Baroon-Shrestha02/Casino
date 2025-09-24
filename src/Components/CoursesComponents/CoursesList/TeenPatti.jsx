@@ -9,7 +9,7 @@ export default function TeenPatti() {
         title="Teen Patti"
         subtitle="Learn Teen Patti - From Beginner to Advanced."
         description="Step into the exciting world of casino gaming with our comprehensive Teen Patti Dealer Training Course. Learn the rules, dealing techniques, and professional dealer skills to confidently manage Teen Patti tables in casinos and private events."
-        image="/uploads/gallery/img_teenpatti.jpg"
+        image="/uploads/home/teen.png"
       />
       <CoursesSection
         title="🎴 Master the Art of Teen Patti"

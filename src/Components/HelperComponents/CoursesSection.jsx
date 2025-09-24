@@ -1,6 +1,7 @@
 import React from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function CoursesSection(props) {
   const containerVariant = {
@@ -716,7 +717,7 @@ export default function CoursesSection(props) {
                 whileInView="visible"
                 viewport={{ once: true }}
               >
-                Other Courses
+                Popular Choices
               </motion.h3>
 
               <motion.div
@@ -726,82 +727,50 @@ export default function CoursesSection(props) {
                 whileInView="visible"
                 viewport={{ once: true }}
               >
-                <motion.div
-                  className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-300"
-                  variants={slideRightVariant}
-                  whileHover={{ x: 5, scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="w-16 h-16 bg-gradient-to-br from-pink-400 to-purple-500 rounded-lg flex items-center justify-center">
-                    <svg
-                      className="w-8 h-8 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h4"
+                <Link to="/courses/roulette">
+                  <motion.div
+                    className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-300"
+                    variants={slideRightVariant}
+                    whileHover={{ x: 5, scale: 1.02 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="w-16 h-16 flex items-center justify-center">
+                      <img
+                        src="/uploads/courses/rou.jpg"
+                        alt=""
+                        className="h-full w-full object-cover rounded-xl"
                       />
-                    </svg>
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-gray-800">
-                      UI/UX Diploma Course
-                    </h4>
-                    <p className="text-gray-600 text-sm">Duration: 3 months</p>
-                    <div className="flex items-center mt-2">
-                      <div className="w-6 h-6 bg-blue-400 rounded-full flex items-center justify-center mr-1">
-                        <span className="text-white text-xs">M</span>
-                      </div>
-                      <div className="w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">
-                        <span className="text-white text-xs">S</span>
-                      </div>
-                      <span className="text-sm text-gray-500 ml-2">
-                        Mentors
-                      </span>
                     </div>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-300"
-                  variants={slideRightVariant}
-                  whileHover={{ x: 5, scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-red-500 rounded-lg flex items-center justify-center">
-                    <svg
-                      className="w-8 h-8 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-gray-800">Roulette</h4>
+                      <p className="text-gray-600 text-sm">
+                        Duration: 1.5 months
+                      </p>
+                    </div>
+                  </motion.div>
+                </Link>
+                <Link to="/courses/blackjack">
+                  <motion.div
+                    className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-300"
+                    variants={slideRightVariant}
+                    whileHover={{ x: 5, scale: 1.02 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="w-16 h-16 flex items-center justify-center">
+                      <img
+                        src="/uploads/courses/popblack.png"
+                        alt=""
+                        className="h-full w-full object-cover rounded-xl"
                       />
-                    </svg>
-                  </div>
-                  <div className="flex-1">
-                    <h4 className="font-semibold text-gray-800">
-                      Graphics Design Diploma Course
-                    </h4>
-                    <p className="text-gray-600 text-sm">Duration: 2 months</p>
-                    <div className="flex items-center mt-2">
-                      <div className="w-6 h-6 bg-purple-400 rounded-full flex items-center justify-center">
-                        <span className="text-white text-xs">J</span>
-                      </div>
-                      <span className="text-sm text-gray-500 ml-2">
-                        Jem Shahi
-                      </span>
                     </div>
-                  </div>
-                </motion.div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-gray-800">Blackjack</h4>
+                      <p className="text-gray-600 text-sm">
+                        Duration: 2 months
+                      </p>
+                    </div>
+                  </motion.div>
+                </Link>
               </motion.div>
             </motion.div>
           </div>

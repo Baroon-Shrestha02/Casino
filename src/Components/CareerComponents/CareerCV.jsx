@@ -98,6 +98,18 @@ Please review the submission and contact the student for next steps.
     setUploadedFileUrl(null);
   };
 
+  const courseOptions = [
+    "Roulette",
+    "Blackjack",
+    "Poker (All Variants)",
+    "Baccarat",
+    "Andar Bahar",
+    "Marriage (Rummy Style)",
+    "Indian Flush (Teen Patti)",
+    "Casino War",
+    "Other",
+  ];
+
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-6">
@@ -107,7 +119,7 @@ Please review the submission and contact the student for next steps.
             <div
               className="absolute inset-0 bg-cover bg-center bg-no-repeat"
               style={{
-                backgroundImage: "url('/uploads/home/hero.jpeg')",
+                backgroundImage: "url('/uploads/contact/form2.jpg')",
               }}
             />
             <div className="absolute inset-0 bg-black/50" />
@@ -145,15 +157,20 @@ Please review the submission and contact the student for next steps.
                 <label className="block text-gray-700 font-medium mb-2">
                   Course Taken
                 </label>
-                <input
-                  type="text"
+                <select
                   name="course"
                   value={formData.course}
                   onChange={handleChange}
                   required
-                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition"
-                  placeholder="Enter course name"
-                />
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition bg-white"
+                >
+                  <option value="">Select a course</option>
+                  {courseOptions.map((course, index) => (
+                    <option key={index} value={course}>
+                      {course}
+                    </option>
+                  ))}
+                </select>
               </div>
 
               <div>

@@ -81,7 +81,7 @@ Please review the submission and contact the student for next steps.
             <div
               className="absolute inset-0 bg-cover bg-center bg-no-repeat"
               style={{
-                backgroundImage: "url('/uploads/home/hero.jpeg')",
+                backgroundImage: "url('/uploads/contact/form1.jpg')",
               }}
             />
             <div className="absolute inset-0 bg-black/50" />
@@ -197,7 +197,7 @@ Please review the submission and contact the student for next steps.
                 className={`w-full py-4 rounded-lg font-semibold text-lg transition duration-300 transform hover:scale-105 mt-auto ${
                   isUploading
                     ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-red-600 hover:bg-red-700 text-white"
+                    : "bg-primary text-white"
                 }`}
               >
                 {isUploading ? (

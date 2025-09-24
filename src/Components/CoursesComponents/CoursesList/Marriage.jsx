@@ -9,7 +9,7 @@ export default function Marriage() {
         title="Marriage"
         subtitle="Learn Marriage Card Game - From Beginner to Expert Dealer."
         description="Step into the world of professional casino gaming with our specialized Marriage Dealer Training Course. Learn the rules, dealing techniques, and professional dealer skills to confidently manage Marriage (Rummy-style) tables in casinos and private gaming events."
-        image="/uploads/gallery/img_marriage_game.jpg"
+        image="/uploads/home/rummy.jpeg"
       />
       <CoursesSection
         title="🎴 Master the Art of Marriage Card Game"

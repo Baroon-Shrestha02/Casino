@@ -147,14 +147,6 @@ export default function CasinoFooter() {
               >
                 CONTACT US
               </Link>
-              <div className="pt-2">
-                <Link
-                  to="/courses"
-                  className="text-yellow-300 hover:text-yellow-200 text-sm underline decoration-dotted underline-offset-4 transition-colors"
-                >
-                  Browse All Courses →
-                </Link>
-              </div>
             </div>
           </div>
         </div>

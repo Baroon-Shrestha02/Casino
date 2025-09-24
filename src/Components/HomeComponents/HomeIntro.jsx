@@ -203,9 +203,9 @@ export default function HomeIntro() {
               }}
               transition={{ delay: 2.0, duration: 0.9, ease: "easeOut" }}
             >
-              <Link to="/courses">
-                <button className="px-8 py-4 bg-primary text-[#131313] text-xl font-bold rounded-2xl shadow-xl hover:from-orange-600 hover:to-red-600 transform hover:scale-105 transition-all duration-300">
-                  Explore Courses
+              <Link to="/about">
+                <button className="px-8 py-4 bg-primary text-white text-xl font-bold rounded-2xl shadow-xl hover:from-orange-600 hover:to-red-600 transform hover:scale-105 transition-all duration-300">
+                  Explore More
                 </button>
               </Link>
             </motion.div>

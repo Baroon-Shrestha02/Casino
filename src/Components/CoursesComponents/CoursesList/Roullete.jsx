@@ -9,7 +9,7 @@ export default function Roullete() {
         title="Roulette"
         subtitle="Learn Roulette - From Beginner to Advanced."
         description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis voluptate vel itaque error deleniti sed perspiciatis autem rem fugit beatae quidem sunt, modi accusamus nobis."
-        image="/uploads/gallery/img1.jpg"
+        image="/uploads/home/roulette.jpg"
       />
       <CoursesSection
         title="🎰 Master the Art of Roulette"

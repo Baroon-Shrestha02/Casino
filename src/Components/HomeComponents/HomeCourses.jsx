@@ -7,6 +7,7 @@ import {
   Star,
   Play,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function HomeCourses() {
   const scrollContainerRef = useRef(null);
@@ -22,6 +23,7 @@ export default function HomeCourses() {
       description:
         "Learn professional roulette dealing techniques including ball spinning, inside & outside bets, and fast payouts.",
       image: "/uploads/home/roulette.jpg",
+      href: "/courses/roulette",
     },
     {
       id: 2,
@@ -31,15 +33,17 @@ export default function HomeCourses() {
       description:
         "Comprehensive blackjack dealing program covering insurance bets, splits, doubles, and advanced game protection.",
       image: "/uploads/home/blackjack.jpg",
+      href: "/courses/blackjack",
     },
     {
       id: 3,
       title: "Poker (All Variants)",
       subtitle:
-        "Texas Hold’em, Omaha, 7-Card Stud • Pot management • Tournament dealing",
+        "Texas Hold'em, Omaha, 7-Card Stud • Pot management • Tournament dealing",
       description:
         "Master Texas Hold'em, Omaha, 7-Card Stud dealing with professional pot management and tournament skills.",
       image: "/uploads/home/poker.jpg",
+      href: "/courses/poker",
     },
     {
       id: 4,
@@ -48,6 +52,7 @@ export default function HomeCourses() {
       description:
         "Professional Baccarat dealing certification focusing on Punto Banco style and 3rd card rules.",
       image: "/uploads/home/baccarat.jpg",
+      href: "/courses/baccarat",
     },
     {
       id: 5,
@@ -56,6 +61,7 @@ export default function HomeCourses() {
       description:
         "Learn the art of dealing Teen Patti with proper hand rankings, side bets, and cultural etiquette.",
       image: "/uploads/home/teen.png",
+      href: "/courses/teen-patti",
     },
     {
       id: 6,
@@ -64,6 +70,7 @@ export default function HomeCourses() {
       description:
         "Master high-speed casino games including Casino War, Andar Bahar, and other quick-play formats.",
       image: "/uploads/home/war.jpg",
+      href: "/courses/casino-war",
     },
     {
       id: 7,
@@ -72,6 +79,7 @@ export default function HomeCourses() {
       description:
         "Master high-speed casino games including Casino War, Andar Bahar, and other quick-play formats.",
       image: "/uploads/home/andar.avif",
+      href: "/courses/andar-bahar",
     },
     {
       id: 8,
@@ -80,6 +88,7 @@ export default function HomeCourses() {
       description:
         "Master high-speed casino games including Casino War, Andar Bahar, and other quick-play formats.",
       image: "/uploads/home/rummy.jpeg",
+      href: "/courses/marriage",
     },
   ];
 
@@ -173,39 +182,41 @@ export default function HomeCourses() {
               WebkitScrollbar: { display: "none" },
             }}
           >
-            {courses.map((course, index) => (
+            {courses.map((course) => (
               <div
                 key={course.id}
                 className="flex-none w-[380px] group cursor-pointer"
               >
                 <div className=" backdrop-blur-sm rounded-3xl p-1 transition-all duration-500 hover:scale-[1.02]">
-                  <div className="relative overflow-hidden rounded-3xl">
-                    {/* Course Image */}
-                    <div className="relative h-84 overflow-hidden rounded-3xl">
-                      <img
-                        src={course.image}
-                        alt={course.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div
-                        className={`absolute inset-0 bg-gradient-to-t ${course.color} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}
-                      />
-                    </div>
+                  <Link to={course.href}>
+                    <div className="relative overflow-hidden rounded-3xl">
+                      {/* Course Image */}
+                      <div className="relative h-84 overflow-hidden rounded-3xl">
+                        <img
+                          src={course.image}
+                          alt={course.title}
+                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div
+                          className={`absolute inset-0 bg-gradient-to-t ${course.color} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}
+                        />
+                      </div>
 
-                    {/* Course Content */}
-                    <div className=" p-3">
-                      <h3 className="text-2xl font-bold text-primary transition-colors duration-300">
-                        {course.title}
-                      </h3>
+                      {/* Course Content */}
+                      <div className=" p-3">
+                        <h3 className="text-2xl font-bold text-primary transition-colors duration-300">
+                          {course.title}
+                        </h3>
 
-                      {/* <p className="text-white text-sm leading-relaxed mb-3 line-clamp-3">
+                        {/* <p className="text-white text-sm leading-relaxed mb-3 line-clamp-3">
                         {course.subtitle}
                       </p> */}
-                      <p className="text-slate-200 texl leading-relaxed  line-clamp-3">
-                        {course.description}
-                      </p>
+                        <p className="text-slate-200 texl leading-relaxed  line-clamp-3">
+                          {course.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -219,13 +230,6 @@ export default function HomeCourses() {
                 className="w-2 h-2 rounded-full bg-white/20 hover:bg-white/40 transition-all duration-300"
               />
             ))}
-          </div>
-
-          {/* Explore All Button */}
-          <div className="text-center mt-6">
-            <button className="px-8 py-4 bg-primary backdrop-blur-sm text-white font-medium rounded-2xl transition-all duration-300 border border-white/20 hover:border-white/40">
-              Explore All Courses
-            </button>
           </div>
         </div>
       </div>

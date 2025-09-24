@@ -9,7 +9,7 @@ export default function Baccarat() {
         title="Baccarat"
         subtitle="Learn Baccarat - From Beginner to Advanced."
         description="Step into the world of professional casino gaming with our comprehensive Baccarat Dealer Training Course. Learn the rules, dealing techniques, and dealer etiquette to confidently manage Baccarat tables in casinos and private events."
-        image="/uploads/gallery/img_baccarat.jpg"
+        image="/uploads/home/baccarat.jpg"
       />
       <CoursesSection
         title="🎴 Master the Art of Baccarat"
