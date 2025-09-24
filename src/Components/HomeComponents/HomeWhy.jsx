@@ -416,9 +416,13 @@ export default function HomeWhy() {
                       />
                     )
                   ) : (
-                    <motion.img
+                    <motion.video
                       key="default-image"
-                      src={defaultImage}
+                      src="https://res.cloudinary.com/dxo8kfpp0/video/upload/v1758616991/Hansol_zfqqis.mov"
+                      loop
+                      autoPlay
+                      muted
+                      playsInline
                       alt="Default Casino"
                       className="w-full h-[500px] object-cover"
                       initial={{ opacity: 0, scale: 1.05 }}
