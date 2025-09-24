@@ -1,5 +1,5 @@
 import React from "react";
-import AccordionSlider from "../HelperComponents/AccordionSLider";
+import AccordionSlider from "../HelperComponents/AccordionSlider";
 
 export default function AboutWhy() {
   return (
