@@ -54,7 +54,7 @@ export default function TeenPatti() {
         exp1="Teen Patti Rules & Strategy Expert"
         exp2="Dealer Techniques Specialist"
         exp3="Pot Management & Game Flow Pro"
-        profimg="/uploads/gallery/img_teenpatti_instructor.jpg"
+        profimg="/uploads/about/team/team5.jpg"
         // courses
         level="Beginner"
         duration="1.5 Months"

@@ -54,7 +54,7 @@ export default function Andar() {
         exp1="Andar Bahar Rules & Strategy Expert"
         exp2="Dealer Techniques Specialist"
         exp3="Bet Management & Game Flow Pro"
-        profimg="/uploads/gallery/img_andarbahar_instructor.jpg"
+        profimg="/uploads/about/team/team1.jpg"
         // courses
         level="Beginner"
         duration="1 Month"

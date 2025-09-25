@@ -54,7 +54,7 @@ export default function BlackJack() {
         exp1="Blackjack Rules & Strategy Expert"
         exp2="Dealer Techniques Specialist"
         exp3="Casino Game Management Pro"
-        profimg="/uploads/gallery/img_blackjack_instructor.jpg"
+        profimg="/uploads/about/team/team3.jpg"
         // courses
         level="Beginner"
         duration="2 Months"

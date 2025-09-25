@@ -58,7 +58,7 @@ export default function Roullete() {
         exp1="Roulette Rules & Odds Expert"
         exp2="Dealer Techniques Specialist"
         exp3="Casino Game Management Pro"
-        profimg="/uploads/gallery/img1.jpg"
+        profimg="/uploads/about/team/team1.jpg"
         // courses
         level="Beginner"
         duration="1.5 Months"

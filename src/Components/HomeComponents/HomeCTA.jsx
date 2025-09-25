@@ -4,8 +4,8 @@ export default function HomePage() {
   return (
     <div className="m-3 md:m-6 rounded-3xl">
       <CasinoCTASection
-        videoSrc="/uploads/home/intro1.mp4"
-        imageSrc="/uploads/home/hero.jpeg"
+        // videoSrc="/uploads/home/intro1.mp4"
+        imageSrc="/uploads/home/cta.jpg"
         heading="Your Casino Career"
         highlight="Starts Here"
         subheading="Seats Filling Fast!"

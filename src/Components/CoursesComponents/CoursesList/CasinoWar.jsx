@@ -54,7 +54,7 @@ export default function CasinoWar() {
         exp1="Casino War Rules & Strategy Expert"
         exp2="Dealer Techniques Specialist"
         exp3="Bet Management & Game Flow Pro"
-        profimg="/uploads/gallery/img_casinowar_instructor.jpg"
+        profimg="/uploads/about/team/team3.jpg"
         // courses
         level="Beginner"
         duration="1 Month"

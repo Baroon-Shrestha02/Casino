@@ -36,7 +36,7 @@ export default function CasinoCTASection({
     >
       {/* Background Container - Fixed positioning issue */}
       <div className="absolute inset-0 w-full h-full">
-        {videoSrc ? (
+        {/* {videoSrc ? (
           <video
             className="absolute top-0 left-0 w-full h-full object-cover rounded-3xl"
             style={{
@@ -57,7 +57,7 @@ export default function CasinoCTASection({
             <source src={videoSrc} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-        ) : null}
+        ) : null} */}
 
         {/* Image (always present as fallback or primary) */}
         <img

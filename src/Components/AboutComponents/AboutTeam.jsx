@@ -11,8 +11,7 @@ export default function AboutTeam() {
       position: "Head of Casino Training",
       description:
         "With over 15 years of international casino experience, Rajesh leads our training programs with a deep understanding of gaming operations, dealer performance, and casino management. He is committed to mentoring students and preparing them for high-pressure, professional casino environments.",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      image: "uploads/about/team/team1.jpg",
       social: { twitter: "#", linkedin: "#", instagram: "#" },
     },
     {
@@ -21,8 +20,7 @@ export default function AboutTeam() {
       position: "Senior Roulette Trainer",
       description:
         "Sita specializes in advanced roulette dealing techniques, precision chip handling, and seamless game management. With more than a decade of hands-on casino experience, she trains students to handle real-world casino scenarios with confidence and professionalism.",
-      image:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      image: "uploads/about/team/team2.jpg",
       social: { twitter: "#", linkedin: "#", instagram: "#" },
     },
     {
@@ -31,8 +29,7 @@ export default function AboutTeam() {
       position: "Blackjack Trainer",
       description:
         "With over 10 years in professional blackjack tables, Binod provides in-depth training in dealing, table etiquette, and player interaction. He emphasizes accuracy, efficiency, and customer satisfaction, preparing students for a seamless transition to professional casino floors.",
-      image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      image: "uploads/about/team/team4.jpg",
       social: { twitter: "#", linkedin: "#", instagram: "#" },
     },
     {
@@ -41,8 +38,7 @@ export default function AboutTeam() {
       position: "Baccarat & Poker Trainer",
       description:
         "Priya is an expert in baccarat and poker variants, bringing years of experience from top-tier casinos. She trains students in advanced dealing strategies, professional table etiquette, and real-time decision making to excel in competitive casino environments.",
-      image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      image: "uploads/about/team/team3.jpg",
       social: { twitter: "#", linkedin: "#", instagram: "#" },
     },
     {
@@ -51,8 +47,7 @@ export default function AboutTeam() {
       position: "Casino Operations Manager",
       description:
         "Anil oversees all practical training sessions and operational aspects of our casino programs. With extensive experience in casino management and operations, he ensures students gain authentic, hands-on experience while adhering to professional standards and industry best practices.",
-      image:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+      image: "uploads/about/team/team5.jpg",
       social: { twitter: "#", linkedin: "#", instagram: "#" },
     },
   ];

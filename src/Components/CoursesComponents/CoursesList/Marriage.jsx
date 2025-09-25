@@ -54,7 +54,7 @@ export default function Marriage() {
         exp1="Marriage Rules & Strategy Expert"
         exp2="Dealer Techniques Specialist"
         exp3="Bet Management & Game Flow Pro"
-        profimg="/uploads/gallery/img_marriage_instructor.jpg"
+        profimg="/uploads/about/team/team4.jpg"
         // courses
         level="Beginner"
         duration="1 Month"

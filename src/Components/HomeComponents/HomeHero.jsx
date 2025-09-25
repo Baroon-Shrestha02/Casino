@@ -7,7 +7,7 @@ export default function HomeHero() {
 
   // Hero background slides
   const slides = [
-    "/uploads/home/hero.jpeg",
+    "/uploads/home/hero.jpg",
     "/uploads/gallery/img1.jpg",
     "/uploads/gallery/img2.jpg",
   ];

@@ -54,7 +54,7 @@ export default function Baccarat() {
         exp1="Baccarat Rules & Strategy Expert"
         exp2="Dealer Techniques Specialist"
         exp3="Bet Management & Game Flow Pro"
-        profimg="/uploads/gallery/img_baccarat_instructor.jpg"
+        profimg="/uploads/about/team/team2.jpg"
         // courses
         level="Beginner"
         duration="1.5 Months"

@@ -54,7 +54,7 @@ export default function Poker() {
         exp1="Poker Rules & Variants Expert"
         exp2="Dealer Techniques Specialist"
         exp3="Tournament Management Pro"
-        profimg="/uploads/gallery/img_poker_instructor.jpg"
+        profimg="/uploads/about/team/team5.jpg"
         // courses
         level="Beginner"
         duration="2 Months"
