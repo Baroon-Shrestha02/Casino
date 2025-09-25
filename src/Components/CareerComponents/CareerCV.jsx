@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { storage } from "../../firebase";
+import axios from "axios";
 
 export default function CareerCV() {
   const [formData, setFormData] = useState({
@@ -11,83 +10,101 @@ export default function CareerCV() {
     file: null,
   });
 
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadedFileUrl, setUploadedFileUrl] = useState(null);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [fileType, setFileType] = useState(null);
+
+  const CLOUD_NAME = "dxo8kfpp0";
+  const UPLOAD_PRESET = "resume_upload";
+
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     setFormData({
       ...formData,
       [name]: files ? files[0] : value,
     });
+    if (files && files[0]) {
+      setFileType(files[0].type);
+    }
   };
 
-  const [isUploading, setIsUploading] = useState(false);
-  const [uploadedFileUrl, setUploadedFileUrl] = useState(null);
-
-  const uploadFileToCloud = async (file) => {
+  const uploadFileToCloudinary = async (file) => {
     setIsUploading(true);
+    setUploadProgress(0);
+
+    const form = new FormData();
+    form.append("file", file);
+    form.append("upload_preset", UPLOAD_PRESET);
+    form.append("folder", "cv_uploads");
+
     try {
-      // Create a reference in Firebase Storage
-      const storageRef = ref(storage, `uploads/${Date.now()}_${file.name}`);
+      // detect file type for upload endpoint
+      const endpoint = file.type.includes("pdf") ? "auto" : "raw";
 
-      // Upload the file
-      const snapshot = await uploadBytes(storageRef, file);
+      const response = await axios.post(
+        `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/${endpoint}/upload`,
+        form,
+        {
+          headers: { "X-Requested-With": "XMLHttpRequest" },
+          onUploadProgress: (progressEvent) => {
+            if (!progressEvent.total) return;
+            const percent = Math.round(
+              (progressEvent.loaded * 100) / progressEvent.total
+            );
+            setUploadProgress(percent);
+          },
+        }
+      );
 
-      // Get the download URL
-      const downloadURL = await getDownloadURL(snapshot.ref);
+      const result = response.data;
+      const secureUrl = result?.secure_url;
+      if (!secureUrl) throw new Error("Upload failed: No secure_url returned");
 
-      setUploadedFileUrl(downloadURL);
+      setUploadedFileUrl(secureUrl);
+      return secureUrl;
+    } finally {
       setIsUploading(false);
-      return downloadURL;
-    } catch (error) {
-      setIsUploading(false);
-      console.error("Firebase upload error:", error);
-      throw error;
+      setUploadProgress(0);
     }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    let fileUrl = null;
 
-    let fileUrl = "No file attached";
-
-    // Upload file to cloud if file is selected
     if (formData.file) {
       try {
-        fileUrl = await uploadFileToCloud(formData.file);
-      } catch (error) {
+        fileUrl = await uploadFileToCloudinary(formData.file);
+      } catch {
         alert("Failed to upload file. Please try again.");
         return;
       }
     }
 
-    // WhatsApp number (use your own WhatsApp business/number here)
-    const whatsappNumber = "9779818739823"; // Replace with real number
+    const whatsappNumber = "9779818739823";
 
-    // Message body with file link
     const message = `
-🎓 New File Submission
-
-👤 Name: ${formData.name}
-📚 Course: ${formData.course}
-📧 Email: ${formData.email}
-📱 Phone: ${formData.phone}
-📎 File: ${
-      formData.file
-        ? `${formData.file.name}\n🔗 Download Link: ${fileUrl}`
-        : "No file attached"
-    }
-
-Please review the submission and contact the student for next steps.
+  🎓 New File Submission
+  
+  👤 Name: ${formData.name}
+  📚 Course: ${formData.course}
+  📧 Email: ${formData.email}
+  📱 Phone: ${formData.phone}
+  📎 File: ${
+    fileUrl
+      ? `${formData.file.name}\n🔗 Download Link: ${fileUrl}`
+      : "No file attached"
+  }
+  
+  Please review the submission and contact the student for next steps.
     `;
 
-    // Encode message
     const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
       message
     )}`;
-
-    // Open WhatsApp
     window.open(whatsappURL, "_blank");
 
-    // Reset form
     setFormData({
       name: "",
       course: "",
@@ -96,6 +113,7 @@ Please review the submission and contact the student for next steps.
       file: null,
     });
     setUploadedFileUrl(null);
+    setFileType(null);
   };
 
   const courseOptions = [
@@ -110,11 +128,24 @@ Please review the submission and contact the student for next steps.
     "Other",
   ];
 
+  // Get the correct preview/download link depending on file type
+  const getFileLink = () => {
+    if (!uploadedFileUrl || !fileType) return uploadedFileUrl;
+
+    if (fileType.includes("pdf")) {
+      return uploadedFileUrl.replace("/upload/", "/upload/fl_inline/");
+    }
+    if (fileType.includes("msword") || fileType.includes("wordprocessingml")) {
+      return uploadedFileUrl.replace("/upload/", "/upload/fl_attachment/");
+    }
+    return uploadedFileUrl; // images & others
+  };
+
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-8 items-stretch max-w-6xl mx-auto">
-          {/* Left Side - Image */}
+          {/* Left Side */}
           <div className="relative rounded-xl overflow-hidden min-h-[600px] flex">
             <div
               className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -126,17 +157,21 @@ Please review the submission and contact the student for next steps.
             <div className="relative z-10 flex flex-col justify-center items-center text-center p-8 text-white w-full">
               <h2 className="text-4xl font-bold mb-6">Send Us Your CV</h2>
               <p className="text-lg leading-relaxed max-w-md">
-                Upload your project files easily and our team will connect with
-                you for the next steps.
+                Upload your documents and our team will connect with you for the
+                next steps.
               </p>
             </div>
           </div>
 
           {/* Right Side - Form */}
           <div className="bg-white shadow-lg rounded-xl p-8 min-h-[600px] flex flex-col">
-            <h3 className="text-2xl font-semibold mb-6 text-gray-800">
+            <h3 className="text-2xl font-semibold mb-3 text-gray-800">
               Fill the form
             </h3>
+            <p className="text-sm text-red-600 mb-6">
+              ⚠️ Please provide real information only — this will be used to
+              contact you later.
+            </p>
             <div className="space-y-5 flex-1 flex flex-col">
               <div>
                 <label className="block text-gray-700 font-medium mb-2">
@@ -203,16 +238,20 @@ Please review the submission and contact the student for next steps.
                 />
               </div>
 
+              {/* File Upload */}
               <div className="flex-1">
                 <label className="block text-gray-700 font-medium mb-2">
-                  Choose File
+                  Upload File{" "}
+                  <span className="text-xs text-gray-500">
+                    (Allowed: .doc, .docx, .jpg, .jpeg, .png)
+                  </span>
                 </label>
                 <input
                   type="file"
                   name="file"
                   onChange={handleChange}
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-red-600 file:text-white hover:file:bg-red-700 cursor-pointer transition"
-                  accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.zip"
+                  accept=".doc,.docx,.jpg,.jpeg,.png"
                 />
                 {formData.file && (
                   <div className="mt-2 p-3 bg-gray-50 rounded-lg">
@@ -231,12 +270,13 @@ Please review the submission and contact the student for next steps.
                       ✅ File uploaded successfully!
                     </p>
                     <a
-                      href={uploadedFileUrl}
+                      href={getFileLink()}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-xs text-blue-600 hover:underline mt-1 block"
                     >
-                      🔗 Preview uploaded file
+                      🔗{" "}
+                      {fileType?.includes("image") ? "View Image" : "Open File"}
                     </a>
                   </div>
                 )}
@@ -255,7 +295,8 @@ Please review the submission and contact the student for next steps.
                 {isUploading ? (
                   <div className="flex items-center justify-center">
                     <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                    Uploading File...
+                    Uploading File
+                    {uploadProgress ? ` ${uploadProgress}%` : "..."}
                   </div>
                 ) : (
                   "Send to WhatsApp"

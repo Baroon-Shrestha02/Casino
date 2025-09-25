@@ -443,24 +443,6 @@ export default function HomeWhy() {
             </div>
           </div>
         </div>
-
-        {/* Bottom CTA */}
-        {/* {!activeReason && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            className="text-center mt-16"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              Start Your Journey Today
-            </motion.button>
-          </motion.div>
-        )} */}
       </div>
     </section>
   );

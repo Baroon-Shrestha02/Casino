@@ -127,6 +127,96 @@ export default function Gallery() {
       alt: "Gallery",
       title: "Sample",
     },
+    {
+      src: "/uploads/gallery/img10.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+    {
+      src: "/uploads/gallery/img12.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+    {
+      src: "/uploads/gallery/img13.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+    {
+      src: "/uploads/gallery/img14.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+    {
+      src: "/uploads/gallery/img15.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+    {
+      src: "/uploads/gallery/img16.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+    {
+      src: "/uploads/gallery/img17.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+    {
+      src: "/uploads/gallery/img18.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+    {
+      src: "/uploads/gallery/img19.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+    {
+      src: "/uploads/gallery/img20.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+    {
+      src: "/uploads/gallery/img21.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+    {
+      src: "/uploads/gallery/img22.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+    {
+      src: "/uploads/gallery/img23.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+    {
+      src: "/uploads/gallery/img24.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
+    {
+      src: "/uploads/gallery/img25.jpg",
+      type: "image",
+      alt: "Gallery",
+      title: "Sample",
+    },
   ];
 
   const openModal = (index) => {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function HomeHero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -91,10 +92,12 @@ export default function HomeHero() {
                       : "translate-y-20 opacity-0"
                   }`}
                 >
-                  <button className="group relative bg-primary py-6 px-8 text-xl font-bold text-white rounded-2xl shadow-2xl  hover:scale-105 hover:shadow-3xl">
-                    <span className="relative z-10">Start Training Now</span>
-                    <div className="absolute inset-0 bg-white opacity-20 rounded-2xl transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
-                  </button>
+                  <Link to="/contact">
+                    <button className="group relative bg-primary py-6 px-8 text-xl font-bold text-white rounded-2xl shadow-2xl  hover:scale-105 hover:shadow-3xl">
+                      <span className="relative z-10">Start Training Now</span>
+                      <div className="absolute inset-0 bg-white opacity-20 rounded-2xl transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
