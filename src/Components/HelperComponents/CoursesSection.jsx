@@ -96,22 +96,10 @@ export default function CoursesSection(props) {
                 {props.title} <br />
               </motion.h2>
               <motion.p
-                className="text-lg text-gray-600 leading-relaxed text-justify"
+                className="text-lg text-gray-600 leading-relaxed text-justify mb-4 "
                 variants={slideRightVariant}
               >
                 {props.para1} <br />
-              </motion.p>
-              <motion.p
-                className="text-lg text-gray-600 leading-relaxed text-justify"
-                variants={slideRightVariant}
-              >
-                {props.para2}
-              </motion.p>
-              <motion.p
-                className="text-lg text-gray-600 leading-relaxed text-justify mb-4"
-                variants={slideRightVariant}
-              >
-                {props.para3}
               </motion.p>
               <motion.div
                 className="h-[40vh] rounded-3xl"
@@ -498,62 +486,6 @@ export default function CoursesSection(props) {
             </motion.div>
 
             {/* 5. Tutor */}
-            <motion.div
-              variants={slideUpVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <motion.h3
-                className="text-2xl font-bold mb-6 text-gray-800"
-                variants={slideRightVariant}
-              >
-                Meet Your Instructor
-              </motion.h3>
-              <motion.div
-                className="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-lg"
-                variants={slideUpVariant}
-                whileHover={{ y: -5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-6">
-                  <motion.div
-                    className="w-32 h-32   flex items-center justify-center text-white text-4xl font-bold"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <img
-                      src={props.profimg}
-                      alt=""
-                      className="h-full w-full object-cover rounded-full"
-                    />
-                  </motion.div>
-                  <motion.div
-                    className="text-center md:text-left flex-1"
-                    variants={slideRightVariant}
-                  >
-                    <h4 className="text-2xl font-bold text-gray-800 mb-2">
-                      {props.name}
-                    </h4>
-                    <p className="text-lg text-blue-600 font-semibold mb-3">
-                      {props.role}
-                    </p>
-                    <p className="text-gray-700 mb-4">{props.tutdesc}</p>
-                    <div className="flex flex-wrap justify-center md:justify-start gap-2">
-                      <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
-                        {props.exp1}
-                      </span>
-                      <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
-                        {props.exp2}
-                      </span>
-                      <span className="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">
-                        {props.exp3}
-                      </span>
-                    </div>
-                  </motion.div>
-                </div>
-              </motion.div>
-            </motion.div>
           </div>
         </div>
 
@@ -673,31 +605,6 @@ export default function CoursesSection(props) {
                   </div>
                   <span className="text-gray-900">{props.category}</span>
                 </motion.div>
-
-                <motion.div
-                  className="flex items-center justify-between pt-4 border-t"
-                  variants={slideRightVariant}
-                >
-                  <div className="flex items-center">
-                    <svg
-                      className="w-5 h-5 text-gray-400 mr-3"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
-                      />
-                    </svg>
-                    <span className="font-medium text-gray-700">Price</span>
-                  </div>
-                  <span className="text-2xl font-bold text-green-600">
-                    Nrs. {props.price}
-                  </span>
-                </motion.div>
               </motion.div>
             </motion.div>
 
@@ -765,6 +672,30 @@ export default function CoursesSection(props) {
                     </div>
                     <div className="flex-1">
                       <h4 className="font-semibold text-gray-800">Blackjack</h4>
+                      <p className="text-gray-600 text-sm">
+                        Duration: 2 months
+                      </p>
+                    </div>
+                  </motion.div>
+                </Link>
+                <Link to="/courses/poker">
+                  <motion.div
+                    className="flex items-center space-x-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-300"
+                    variants={slideRightVariant}
+                    whileHover={{ x: 5, scale: 1.02 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <div className="w-16 h-16 flex items-center justify-center">
+                      <img
+                        src="/uploads/courses/info/poker2.jpeg"
+                        alt=""
+                        className="h-full w-full object-cover rounded-xl"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-gray-800">
+                        Poker (All Variants)
+                      </h4>
                       <p className="text-gray-600 text-sm">
                         Duration: 2 months
                       </p>

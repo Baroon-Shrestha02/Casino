@@ -7,7 +7,7 @@ export default function ContactHero() {
       <HeroSection
         title="Contact Us"
         subtitle="Become a part of Us."
-        description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam architecto ipsam qui expedita veniam rerum aspernatur fugiat voluptates culpa ipsum!"
+        description="Reach out to us with your queries, feedback, or project details, and our team will get back to you promptly."
         image="/uploads/contact/hero.jpg"
       />
     </div>

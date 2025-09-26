@@ -9,7 +9,7 @@ export default function CareerMain() {
   return (
     <div>
       <CareerHero />
-      <CareerPartners />
+      {/* <CareerPartners /> */}
       <CareerHowWeHelp />
       <CareerPosts />
       <CareerCV />

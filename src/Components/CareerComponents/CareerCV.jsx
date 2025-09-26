@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import api from "../../Utils/api";
 
 export default function CareerCV() {
   const [formData, setFormData] = useState({
@@ -10,13 +11,8 @@ export default function CareerCV() {
     file: null,
   });
 
-  const [isUploading, setIsUploading] = useState(false);
-  const [uploadedFileUrl, setUploadedFileUrl] = useState(null);
-  const [uploadProgress, setUploadProgress] = useState(0);
-  const [fileType, setFileType] = useState(null);
-
-  const CLOUD_NAME = "dxo8kfpp0";
-  const UPLOAD_PRESET = "resume_upload";
+  const [loading, setLoading] = useState(false);
+  const [statusMessage, setStatusMessage] = useState(null);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -24,96 +20,43 @@ export default function CareerCV() {
       ...formData,
       [name]: files ? files[0] : value,
     });
-    if (files && files[0]) {
-      setFileType(files[0].type);
-    }
-  };
-
-  const uploadFileToCloudinary = async (file) => {
-    setIsUploading(true);
-    setUploadProgress(0);
-
-    const form = new FormData();
-    form.append("file", file);
-    form.append("upload_preset", UPLOAD_PRESET);
-    form.append("folder", "cv_uploads");
-
-    try {
-      // detect file type for upload endpoint
-      const endpoint = file.type.includes("pdf") ? "auto" : "raw";
-
-      const response = await axios.post(
-        `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/${endpoint}/upload`,
-        form,
-        {
-          headers: { "X-Requested-With": "XMLHttpRequest" },
-          onUploadProgress: (progressEvent) => {
-            if (!progressEvent.total) return;
-            const percent = Math.round(
-              (progressEvent.loaded * 100) / progressEvent.total
-            );
-            setUploadProgress(percent);
-          },
-        }
-      );
-
-      const result = response.data;
-      const secureUrl = result?.secure_url;
-      if (!secureUrl) throw new Error("Upload failed: No secure_url returned");
-
-      setUploadedFileUrl(secureUrl);
-      return secureUrl;
-    } finally {
-      setIsUploading(false);
-      setUploadProgress(0);
-    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let fileUrl = null;
+    setLoading(true);
+    setStatusMessage(null);
 
-    if (formData.file) {
-      try {
-        fileUrl = await uploadFileToCloudinary(formData.file);
-      } catch {
-        alert("Failed to upload file. Please try again.");
-        return;
+    try {
+      const data = new FormData();
+      data.append("name", formData.name);
+      data.append("course", formData.course);
+      data.append("email", formData.email);
+      data.append("phone", formData.phone);
+      if (formData.file) data.append("file", formData.file);
+
+      const res = await api.post("/send", data, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+
+      if (res.data.success) {
+        setStatusMessage("✅ CV sent successfully!");
+        setFormData({
+          name: "",
+          course: "",
+          email: "",
+          phone: "",
+          file: null,
+        });
+      } else {
+        setStatusMessage("❌ Failed to send CV. Try again.");
       }
+    } catch (error) {
+      console.error(error);
+      setStatusMessage("⚠️ Error sending CV. Please try later.");
+    } finally {
+      setLoading(false);
     }
-
-    const whatsappNumber = "9779818739823";
-
-    const message = `
-  🎓 New File Submission
-  
-  👤 Name: ${formData.name}
-  📚 Course: ${formData.course}
-  📧 Email: ${formData.email}
-  📱 Phone: ${formData.phone}
-  📎 File: ${
-    fileUrl
-      ? `${formData.file.name}\n🔗 Download Link: ${fileUrl}`
-      : "No file attached"
-  }
-  
-  Please review the submission and contact the student for next steps.
-    `;
-
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-      message
-    )}`;
-    window.open(whatsappURL, "_blank");
-
-    setFormData({
-      name: "",
-      course: "",
-      email: "",
-      phone: "",
-      file: null,
-    });
-    setUploadedFileUrl(null);
-    setFileType(null);
   };
 
   const courseOptions = [
@@ -128,19 +71,6 @@ export default function CareerCV() {
     "Other",
   ];
 
-  // Get the correct preview/download link depending on file type
-  const getFileLink = () => {
-    if (!uploadedFileUrl || !fileType) return uploadedFileUrl;
-
-    if (fileType.includes("pdf")) {
-      return uploadedFileUrl.replace("/upload/", "/upload/fl_inline/");
-    }
-    if (fileType.includes("msword") || fileType.includes("wordprocessingml")) {
-      return uploadedFileUrl.replace("/upload/", "/upload/fl_attachment/");
-    }
-    return uploadedFileUrl; // images & others
-  };
-
   return (
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-6">
@@ -149,16 +79,14 @@ export default function CareerCV() {
           <div className="relative rounded-xl overflow-hidden min-h-[600px] flex">
             <div
               className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-              style={{
-                backgroundImage: "url('/uploads/contact/form2.jpg')",
-              }}
+              style={{ backgroundImage: "url('/uploads/contact/form2.jpg')" }}
             />
             <div className="absolute inset-0 bg-black/50" />
             <div className="relative z-10 flex flex-col justify-center items-center text-center p-8 text-white w-full">
               <h2 className="text-4xl font-bold mb-6">Send Us Your CV</h2>
               <p className="text-lg leading-relaxed max-w-md">
-                Upload your documents and our team will connect with you for the
-                next steps.
+                Upload your CV and our team will connect with you for the next
+                steps.
               </p>
             </div>
           </div>
@@ -172,7 +100,11 @@ export default function CareerCV() {
               ⚠️ Please provide real information only — this will be used to
               contact you later.
             </p>
-            <div className="space-y-5 flex-1 flex flex-col">
+
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-5 flex-1 flex flex-col"
+            >
               <div>
                 <label className="block text-gray-700 font-medium mb-2">
                   Name
@@ -239,70 +171,41 @@ export default function CareerCV() {
               </div>
 
               {/* File Upload */}
-              <div className="flex-1">
+              <div>
                 <label className="block text-gray-700 font-medium mb-2">
-                  Upload File{" "}
-                  <span className="text-xs text-gray-500">
-                    (Allowed: .doc, .docx, .jpg, .jpeg, .png)
-                  </span>
+                  Upload CV
                 </label>
                 <input
                   type="file"
                   name="file"
                   onChange={handleChange}
+                  required
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-red-600 file:text-white hover:file:bg-red-700 cursor-pointer transition"
-                  accept=".doc,.docx,.jpg,.jpeg,.png"
+                  accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
                 />
                 {formData.file && (
-                  <div className="mt-2 p-3 bg-gray-50 rounded-lg">
-                    <p className="text-sm text-gray-600">
-                      📄 Selected:{" "}
-                      <span className="font-medium">{formData.file.name}</span>
-                    </p>
-                    <p className="text-xs text-gray-500 mt-1">
-                      Size: {(formData.file.size / 1024 / 1024).toFixed(2)} MB
-                    </p>
-                  </div>
-                )}
-                {uploadedFileUrl && (
-                  <div className="mt-2 p-3 bg-green-50 rounded-lg border border-green-200">
-                    <p className="text-sm text-green-600">
-                      ✅ File uploaded successfully!
-                    </p>
-                    <a
-                      href={getFileLink()}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs text-blue-600 hover:underline mt-1 block"
-                    >
-                      🔗{" "}
-                      {fileType?.includes("image") ? "View Image" : "Open File"}
-                    </a>
-                  </div>
+                  <p className="text-sm text-gray-600 mt-2">
+                    📄 Selected: {formData.file.name}
+                  </p>
                 )}
               </div>
 
               <button
-                type="button"
-                onClick={handleSubmit}
-                disabled={isUploading}
+                type="submit"
+                disabled={loading}
                 className={`w-full py-4 rounded-lg font-semibold text-lg transition duration-300 transform hover:scale-105 mt-auto ${
-                  isUploading
+                  loading
                     ? "bg-gray-400 cursor-not-allowed"
                     : "bg-red-600 hover:bg-red-700 text-white"
                 }`}
               >
-                {isUploading ? (
-                  <div className="flex items-center justify-center">
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                    Uploading File
-                    {uploadProgress ? ` ${uploadProgress}%` : "..."}
-                  </div>
-                ) : (
-                  "Send to WhatsApp"
-                )}
+                {loading ? "Sending..." : "Submit CV"}
               </button>
-            </div>
+            </form>
+
+            {statusMessage && (
+              <p className="text-center mt-4 text-sm">{statusMessage}</p>
+            )}
           </div>
         </div>
       </div>

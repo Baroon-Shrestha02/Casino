@@ -10,9 +10,8 @@ export default function Whatsapp() {
   const handleSendMessage = () => {
     const fullMessage = defaultGreeting + "\n\n" + message;
     const encodedMessage = encodeURIComponent(fullMessage);
-    const whatsappUrl = `https://wa.me/9779818739823?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/9779851407135?text=${encodedMessage}`;
     window.open(whatsappUrl, "_blank");
-
     // Reset form
     setMessage("");
     setIsFormOpen(false);

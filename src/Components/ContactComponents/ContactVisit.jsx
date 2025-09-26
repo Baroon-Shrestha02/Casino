@@ -10,21 +10,54 @@ import React from "react";
 import { BsWhatsapp } from "react-icons/bs";
 
 export default function ContactVisit() {
+  const interactiveTitles = new Set(["Address", "Phone", "Email"]);
+
+  const handleCardClick = async (item) => {
+    try {
+      if (item.title === "Phone") {
+        const phone = item.details?.[0] || "";
+        if (phone) {
+          await navigator.clipboard.writeText(phone);
+          alert("Phone number copied to clipboard");
+        }
+        return;
+      }
+      if (item.title === "Email") {
+        const email = item.details?.[0] || "";
+        if (email) {
+          window.location.href = `mailto:${email}`;
+        }
+        return;
+      }
+      if (item.title === "Address") {
+        const address = item.details?.[0] || "";
+        if (address) {
+          const mapsUrl = `https://maps.app.goo.gl/KjS7Rihne8H2K9u36`;
+          window.open(mapsUrl, "_blank", "noopener,noreferrer");
+        }
+      }
+    } catch (error) {
+      console.error("Interaction failed:", error);
+    }
+  };
+
   const contactInfo = [
     {
       icon: <MapPin />,
       title: "Address",
-      details: ["Satdobato, Lalitpur, Nepal 44600"],
+      details: [
+        "Talchikhel Gate, Satdobato, Lalitpur, Hansol Building 1st floor",
+      ],
     },
     {
       icon: <Phone />,
       title: "Phone",
-      details: ["+977 985‑1407135"],
+      details: ["+977 985-1407135"],
     },
     {
       icon: <Mail />,
       title: "Email",
-      details: ["info@yourcompany.com"],
+      details: ["casinotrainingnepal@gmail.com"],
     },
     {
       icon: <TimerIcon />,
@@ -67,7 +100,21 @@ export default function ContactVisit() {
               {contactInfo.map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-start space-x-4 p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
+                  onClick={() =>
+                    interactiveTitles.has(item.title) && handleCardClick(item)
+                  }
+                  role={
+                    interactiveTitles.has(item.title) ? "button" : undefined
+                  }
+                  tabIndex={interactiveTitles.has(item.title) ? 0 : undefined}
+                  aria-label={
+                    interactiveTitles.has(item.title)
+                      ? `${item.title} - click to interact`
+                      : undefined
+                  }
+                  className={`flex items-start space-x-4 p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors ${
+                    interactiveTitles.has(item.title) ? "cursor-pointer" : ""
+                  }`}
                 >
                   <div className="flex-shrink-0 w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center text-red-600">
                     {item.icon}
@@ -122,7 +169,7 @@ export default function ContactVisit() {
             <div className="bg-gray-100 rounded-xl overflow-hidden shadow-lg h-full min-h-[600px]">
               {/* Replace this iframe with your actual Google Maps embed */}
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113032.53120922588!2d85.2911373!3d27.7172453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198a307baabf%3A0xb5137c1bf18db1ea!2sKathmandu%2C%20Nepal!5e0!3m2!1sen!2s!4v1635750000000!5m2!1sen!2s"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.97093706996!2d85.31923819065544!3d27.659788289475983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19cde03059fb%3A0xa3234286380fc73f!2sHANSOL%20Learning%20Center%20Pvt.%20Ltd.!5e1!3m2!1sen!2snp!4v1758878117656!5m2!1sen!2snp"
                 width="100%"
                 height="600"
                 style={{ border: 0 }}

@@ -18,7 +18,7 @@ export default function CareerPosts() {
   const [visibleCards, setVisibleCards] = useState(new Set());
   const [selectedJob, setSelectedJob] = useState(null);
   const observerRef = useRef(null);
-  const whatsappNumber = "9779818739823";
+  const whatsappNumber = "9779851407135";
 
   const jobs = [
     {

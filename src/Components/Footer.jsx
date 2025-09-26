@@ -11,6 +11,27 @@ import {
 import { Link } from "react-router-dom";
 
 export default function CasinoFooter() {
+  const handleCopyPhone = async (phone) => {
+    try {
+      if (!phone) return;
+      await navigator.clipboard.writeText(phone);
+      alert("Phone number copied to clipboard");
+    } catch (error) {
+      console.error("Failed to copy phone:", error);
+    }
+  };
+
+  const handleOpenEmail = (email) => {
+    if (!email) return;
+    window.location.href = `mailto:${email}`;
+  };
+
+  const handleOpenMaps = (address) => {
+    if (!address) return;
+    const url = `https://maps.app.goo.gl/KjS7Rihne8H2K9u36`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   const footerLinks = {
     quickLinks: [
       { name: "Home", to: "/" },
@@ -76,17 +97,44 @@ export default function CasinoFooter() {
                 comprehensive training programs and industry expertise.
               </p>
               <div className="space-y-2 text-sm text-gray-400">
-                <div className="flex items-center gap-2">
+                <div
+                  className="flex items-center gap-2 cursor-pointer hover:text-yellow-300 transition-colors"
+                  onClick={() =>
+                    handleOpenMaps(
+                      "Talchikhel Gate, Satdobato, Lalitpur, Hansol Building 1st floor"
+                    )
+                  }
+                  role="button"
+                  tabIndex={0}
+                  aria-label="Open address in Google Maps"
+                >
                   <MapPin className="w-4 h-4 text-yellow-300" />
-                  <span>Satdobato, Lalitpur</span>
+                  <span>
+                    Talchikhel Gate, Satdobato, Lalitpur, Hansol Building 1st
+                    floor
+                  </span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div
+                  className="flex items-center gap-2 cursor-pointer hover:text-yellow-300 transition-colors"
+                  onClick={() => handleCopyPhone("+977 985-1407135")}
+                  role="button"
+                  tabIndex={0}
+                  aria-label="Copy phone number"
+                >
                   <Phone className="w-4 h-4 text-yellow-300" />
-                  <span>+977 985‑1407135</span>
+                  <span>+977 985-1407135</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div
+                  className="flex items-center gap-2 cursor-pointer hover:text-yellow-300 transition-colors"
+                  onClick={() =>
+                    handleOpenEmail("casinotrainingnepal@gmail.com")
+                  }
+                  role="button"
+                  tabIndex={0}
+                  aria-label="Send email"
+                >
                   <Mail className="w-4 h-4 text-yellow-300" />
-                  <span>info@casinotraningnepal.com</span>
+                  <span>casinotrainingnepal@gmail.com</span>
                 </div>
               </div>
             </div>
@@ -163,7 +211,7 @@ export default function CasinoFooter() {
             </div>
 
             {/* Right: Social Media Links */}
-            <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-3">
               <span className="text-sm text-gray-400 mr-2">Follow us:</span>
               <a
                 href="#"
@@ -189,7 +237,7 @@ export default function CasinoFooter() {
               >
                 <Linkedin className="w-4 h-4 text-gray-300 group-hover:text-slate-900" />
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

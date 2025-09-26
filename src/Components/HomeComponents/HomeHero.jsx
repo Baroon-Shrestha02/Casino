@@ -3,59 +3,30 @@ import { Link } from "react-router-dom";
 
 export default function HomeHero() {
   const [isVisible, setIsVisible] = useState(false);
-  const [current, setCurrent] = useState(0);
-
-  // Hero background slides
-  const slides = [
-    "/uploads/home/hero.jpg",
-    "/uploads/gallery/img1.jpg",
-    "/uploads/gallery/img2.jpg",
-  ];
 
   useEffect(() => {
-    // Trigger animations after component mounts
     const timer = setTimeout(() => {
       setIsVisible(true);
     }, 100);
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    // Auto-slide every 6s
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, [slides.length]);
-
   return (
     <>
       <section className="relative overflow-hidden mx-3 md:mx-6 mt-2 rounded-4xl">
         <div className="relative min-h-[90vh]">
-          {/* Background Carousel Section */}
-          <div
-            className={`absolute inset-0 transition-transform duration-1000 ease-out ${
-              isVisible ? "translate-y-0" : "-translate-y-full"
-            }`}
-          >
-            <div className="relative inset-0 min-h-[90vh] overflow-hidden">
-              {slides.map((src, index) => (
-                <div
-                  key={index}
-                  className={`absolute inset-0 transition-opacity duration-1000 ${
-                    index === current ? "opacity-100" : "opacity-0"
-                  }`}
-                  style={{
-                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url(${src})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    backgroundRepeat: "no-repeat",
-                    minHeight: "90vh",
-                  }}
-                />
-              ))}
-            </div>
-          </div>
+          {/* Background Video */}
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            src="https://res.cloudinary.com/dxo8kfpp0/video/upload/v1758869290/hero_yovnc6.mov"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+
+          {/* Overlay gradient */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black bg-opacity-40"></div>
 
           {/* Content Section */}
           <div className="absolute inset-0 flex items-center justify-center px-6 md:px-12">
@@ -93,7 +64,7 @@ export default function HomeHero() {
                   }`}
                 >
                   <Link to="/contact">
-                    <button className="group relative bg-primary py-6 px-8 text-xl font-bold text-white rounded-2xl shadow-2xl  hover:scale-105 hover:shadow-3xl">
+                    <button className="group relative bg-primary py-6 px-8 text-xl font-bold text-white rounded-2xl shadow-2xl hover:scale-105 hover:shadow-3xl">
                       <span className="relative z-10">Start Training Now</span>
                       <div className="absolute inset-0 bg-white opacity-20 rounded-2xl transform scale-0 group-hover:scale-100 transition-transform duration-300"></div>
                     </button>
@@ -101,19 +72,6 @@ export default function HomeHero() {
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Dots Navigation */}
-          <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrent(index)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  current === index ? "bg-primary scale-125" : "bg-gray-400"
-                }`}
-              ></button>
-            ))}
           </div>
         </div>
       </section>

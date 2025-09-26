@@ -33,7 +33,7 @@ export default function CareerHowWeHelp() {
     },
   ];
 
-  const whatsappNumber = "9779818739823"; // update if needed
+  const whatsappNumber = "9779851407135"; // update if needed
 
   const onContact = () => {
     const message = `Hello! I'm interested in your career support (CV, screening, referrals). Please share details.`;

@@ -7,8 +7,8 @@ export default function Poker() {
     <div>
       <HeroSection
         title="Poker"
-        subtitle="Learn Poker - From Beginner to Advanced."
-        description="Step into the exciting world of casino gaming with our comprehensive Poker Dealer Training Course. Learn to deal Texas Hold’em, Omaha, and other popular variants while mastering professional dealer techniques and casino protocols."
+        subtitle="Poker Mastery - All Variants"
+        description="Enhance your poker dealing skills across all popular variants. Learn game flow, hand rankings, betting procedures, and professional dealer conduct for poker tables."
         image="/uploads/home/poker.jpg"
       />
       <CoursesSection

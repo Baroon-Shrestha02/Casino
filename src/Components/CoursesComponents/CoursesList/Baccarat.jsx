@@ -7,8 +7,8 @@ export default function Baccarat() {
     <div>
       <HeroSection
         title="Baccarat"
-        subtitle="Learn Baccarat - From Beginner to Advanced."
-        description="Step into the world of professional casino gaming with our comprehensive Baccarat Dealer Training Course. Learn the rules, dealing techniques, and dealer etiquette to confidently manage Baccarat tables in casinos and private events."
+        subtitle="Professional Baccarat Dealer Training"
+        description="Gain expertise in Baccarat dealing with our hands-on course. Learn the rules, payouts, and dealer etiquette to manage casino and private gaming tables confidently."
         image="/uploads/home/baccarat.jpg"
       />
       <CoursesSection

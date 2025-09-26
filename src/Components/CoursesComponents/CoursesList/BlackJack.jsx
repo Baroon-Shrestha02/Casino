@@ -7,8 +7,8 @@ export default function BlackJack() {
     <div>
       <HeroSection
         title="BlackJack"
-        subtitle="Learn Blackjack - From Beginner to Advanced."
-        description="Step into the exciting world of casino gaming with our comprehensive Blackjack Training Course. Learn the rules, strategies, and professional dealer techniques that make Blackjack one of the most popular casino games worldwide."
+        subtitle="Become a Blackjack Pro Dealer"
+        description="Learn the rules, dealing methods, and professional dealer skills for Blackjack. Gain confidence to handle casino tables efficiently and provide an engaging player experience."
         image="/uploads/home/blackjack.jpg"
       />
       <CoursesSection

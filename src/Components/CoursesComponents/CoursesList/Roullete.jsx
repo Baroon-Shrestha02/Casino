@@ -7,8 +7,8 @@ export default function Roullete() {
     <div>
       <HeroSection
         title="Roulette"
-        subtitle="Learn Roulette - From Beginner to Advanced."
-        description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis voluptate vel itaque error deleniti sed perspiciatis autem rem fugit beatae quidem sunt, modi accusamus nobis."
+        subtitle="Master Roulette - Beginner to Expert"
+        description="Discover the thrill of Roulette with our comprehensive training course. Learn betting strategies, wheel mechanics, and dealer techniques to excel at professional tables."
         image="/uploads/home/roulette.jpg"
       />
       <CoursesSection
